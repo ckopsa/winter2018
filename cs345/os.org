@@ -1,0 +1,174 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t
+#+OPTIONS: broken-links:nil c:nil creator:nil d:(not "LOGBOOK") date:t e:t
+#+OPTIONS: email:nil f:t inline:t num:t p:nil pri:nil prop:nil stat:t tags:t
+#+OPTIONS: tasks:t tex:t timestamp:t title:t toc:t todo:t |:t
+#+TITLE: CS345 : Operating Systems
+#+DATE: <2018-01-20 Sat>
+#+AUTHOR: Colton Kopsa
+#+EMAIL: Aghbac@Aghbac.local
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 25.3.1 (Org mode 9.1.6)
+
+* DONE Homework 1 [9/9]
+  CLOSED: [2018-01-20 Sat 11:41]
+** DONE 1. (2) What is multiprogramming and what is it used for?
+   CLOSED: [2018-01-08 Mon 11:56]
+   Multiprogramming is organizing jobs so that the CPU always has one to execute.
+
+   Multiprogramming is used for increased CPU utilization.
+** DONE 2. (2) What are some advantages of multiprocessor systems?
+   CLOSED: [2018-01-08 Mon 11:46]
+  - Increased throughput - more work done in less time
+  - Economy of scale - Because they can share resources the can cost less
+  - Increased reliability - properly distributed tasks over several processes
+    can fail and allow other processors to pick up the remaining tasks,
+    graceful degradation
+** DONE 3. (3) How do clustered systems differ from multiprocessor systems?
+   CLOSED: [2018-01-08 Mon 11:56]
+   Clustered systems differ from the multiprocessor systems in that they are
+   composed of two or more individual systems - or nodes - joined together.
+*** DONE What is required for two machines belonging to a cluster to cooperate to provide a highly available service?
+    CLOSED: [2018-01-08 Mon 11:56]
+    Redundancy in the systems.
+** DONE 4. (3) Why are caches useful?
+   CLOSED: [2018-01-08 Mon 15:04]
+   Caches provide quicker access to data by buffering the data from a slower
+   storage.
+*** DONE What problems do caches cause?
+    CLOSED: [2018-01-08 Mon 15:04]
+    cache coherency - this occurs when data between caches becomes out-of-sync.
+*** DONE If a cache can be made as large as the device for which it is caching (for instance, a cache as large as a disk), why not make it that large and eliminate the device? Provide any assumptions or conditions that your answer is based on.
+    CLOSED: [2018-01-08 Mon 15:04]
+    The cache can be made as large as the device assuming that the cache
+    maintains the same storage properties as the device and also assuming that
+    the cache is comparable in cost.
+** DONE 5. (3) Indicate which following types of operating systems, Time sharing (T), Real time (R), Handheld (H) match with the following properties:
+   CLOSED: [2018-01-10 Wed 11:49]
+   Uses CPU scheduling and multiprogramming to provide interactive use of a
+   system for many users. - Time Sharing
+
+   An operating system used for a few dedicated end-user applications. - Real Time
+
+   The CPU switches rapidly from one user to another. - Time Sharing
+
+   Reads information from sensors and must respond in a fixed amount of time. -
+   Real time
+
+   Often found as part of the control system for a device or system. - Real Time
+   
+   An operating system for a device with a small amount of memory, small
+   display and often, a slow processor. - Handheld
+** DONE 6. (3) What is the purpose of interrupts?
+   CLOSED: [2018-01-10 Wed 11:34]
+  To notify the CPU when a device becomes ready for service. 
+*** What are the differences between a trap and an interrupt?
+    Interrupts are from hardware and traps are from software.
+*** Can traps be generated intentionally by a user program? If so, for what purpose?
+    Traps are used to execute system calls from software.
+** DONE 7. (2) What are the advantages and disadvantages of using memory-mapped I/O to access device control registers?
+   CLOSED: [2018-01-10 Wed 11:19]
+   The advantage of memory-mapped I/O is that it is simple to use and is faster
+   to write bytes than to issue I/O instructions. The disadvantage is that it
+   is vulnerable to accidental modification by means of an incorrect pointer to
+   an unintended memory region.
+** DONE 8. (4) Consider a hypothetical microprocessor having a 16-bit word size (for example, assume that the program counter and the address registers are 16 bits wide).
+   CLOSED: [2018-01-17 Wed 15:00]
+*** a. What is the maximum memory, in Kbytes, that the processor can access directly if it is connected to a “16-bit wide memory” with a 16-bit data bus? [Hint: Stated another way, every time a read is done from RAM, the RAM delivers 16 bits, or 2 bytes of data.]
+    131072 bytes
+    131.072 Kbytes
+    128 Kbytes
+*** b. What is the maximum memory, in Kbytes that the processor can access directly if it is connected to an “8-bit wide memory” with a 8-bit wide data bus?
+    256 bytes
+    .256 Kbytes
+    .25 Kbytes
+*** c. What architectural features will allow this microprocessor to access a separate “I/O space” (it would have a memory space and I/O space)?
+    Special I/O instructions that specify the transfer of a byte or word to an
+    I/O port address.
+*** d. If separate input and output instructions can each specify which I/O port (usually there is one device for each I/O port) to select using an 8-bit I/O port number, how many I/O ports can the microprocessor support if the data path (data buss) to each I/O port is 8 bits wide? How many I/O ports can the microprocessor support if the data path is 16 bits wide? Explain.
+    The format of the instruction might be like:
+    | Bits indicating an IO instruction. | Register to read/write from/to | R/W | Port # that is 8 bits |
+    - 256 : 2^8 devices
+    - 65536 : 2^16 devices
+** DONE 9. (2) In virtually all systems that include DMA modules, DMA access to main memory is given higher priority than processor access to main memory. Why?
+   CLOSED: [2018-01-10 Wed 11:37]
+   The CPU has caches to rely on for data items, and though /cycle stealing/
+   can slow down the CPU computation, offloading the data-transfer work to a
+   DMA controller generally improves the total system performance.
+* TODO Homework 2 [5/6]
+  DEADLINE: <2018-01-22 Mon>
+** DONE 1.	(4) List six services provided by an operating system that are designed to make it more convenient for users to use the computer system.
+   CLOSED: [2018-01-19 Fri 15:03]
+   1. User Interface
+   2. Error Detection
+   3. File Systems
+   4. Program Execution
+   5. I/O Operations
+   6. Communication
+*** DONE Explain why it is not desirous to have the user level provide low-level file-system manipulation services that an operating system typically provides.
+    CLOSED: [2018-01-19 Fri 15:14]
+    Because the user doesn't have a full understanding of the uses of the
+    kernel, they may accidently make an irreversible mistake. Instead, it would
+    be better to only allow the user to do safe actions.
+** DONE 2.	(2) What are the three general methods that are used for passing parameters to the operating system when a user's process makes a system call?
+   CLOSED: [2018-01-19 Fri 14:59]
+   1. Pass parameters in registers.
+   2. Push parameters to the stack
+   3. Store parameters in a block in memory and pass the address as the parameter
+** DONE 3.	(3) What is the purpose of the command interpreter?
+   CLOSED: [2018-01-19 Fri 14:55]
+   It allows users to directly enter commands to be performed by the operating
+   system.
+*** DONE Why is it usually separate from the kernel?
+    CLOSED: [2018-01-19 Fri 14:55]
+    It is usually not part of the kernel since the command interpreter is
+    subject to changes.
+*** DONE Would it be possible for the user to develop a new command interpreter using the system-call interface provided by the operating system?
+    CLOSED: [2018-01-19 Fri 14:56]
+    Because you can create and manage processes and communicate between things
+    from system calls, you could definitely make a new command interpreter.
+    
+** DONE 4.	(3) What are the two models of interprocess communication?
+   CLOSED: [2018-01-19 Fri 14:47]
+   Shared Memory and Message Passing
+*** DONE What are the strengths and weaknesses of the two approaches?
+    CLOSED: [2018-01-19 Fri 14:47]
+    Message passing is useful for exchanging smaller amounts of data, because no
+    conflicts need be avoided. It is also easier to implement. However, it is
+    slow and is for smaller data exchanges.
+
+    Shared Memory has the speed and size of main memory; however, it has
+    problems relating to security and synchronization.
+** DONE 5.	(4.5) What are the advantages of the microkernel approach to system design?
+   CLOSED: [2018-01-19 Fri 14:49]
+   It is smaller and easier to manage.
+*** DONE How do user programs and system services interact in a microkernel architecture?
+    CLOSED: [2018-01-19 Fri 14:48]
+    Message passing
+*** DONE What are the disadvantages of using the microkernel approach?
+    CLOSED: [2018-01-19 Fri 14:48]
+    The performance of mircokernels can suffer due to increased system-function
+    overhead.
+** TODO 6.	(2.5) What is the purpose of system calls, and how do system calls relate to the OS and to the concept of dual-mode (kernel mode and user mode) operation?
+   The purp
+* TODO Reading Chapter 3
+  DEADLINE: <2018-01-22 Mon>
+  Reading Processes: concept, scheduling, operations on (3.1 – 3.3)
+** Notes
+* TODO Lab 1-T2
+  DEADLINE: <2018-01-23 Tue>
+* TODO GP1
+  DEADLINE: <2018-01-23 Tue>
+* TODO Reading Chapter 3 cont.
+  DEADLINE: <2018-01-24 Wed>
+  IPC, Client-Server (3.4, 3.5.3, 1st paragraph in 3.6.1, three paragraphs in
+  3.6.2, 3.6.3 – 3.7)
+** Notes
+* TODO Quiz #1
+  DEADLINE: <2018-01-25 Thu>
+* TODO Reading Chapter 6
+  DEADLINE: <2018-01-26 Fri>
+  CPU scheduling (6.1 – 6.3.3)
+* TODO Lab 2
+  DEADLINE: <2018-01-27 Sat>

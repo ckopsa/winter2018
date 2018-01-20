@@ -1,0 +1,105 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t
+#+OPTIONS: broken-links:nil c:nil creator:nil d:(not "LOGBOOK") date:t e:t
+#+OPTIONS: email:nil f:t inline:t num:t p:nil pri:nil prop:nil stat:t tags:t
+#+OPTIONS: tasks:t tex:t timestamp:t title:t toc:t todo:t |:t
+#+TITLE: sec
+#+DATE: <2018-01-20 Sat>
+#+AUTHOR: Colton Kopsa
+#+EMAIL: Aghbac@Aghbac.local
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 25.3.1 (Org mode 9.1.6)
+
+* TODO Ponder 02: Analysis [0/3]
+  DEADLINE: <2018-01-20 Sat>
+  - [ ] Add sources to each of the individual sections with references
+  - [ ] Format to look nice
+  - [ ] Turn In and CC Partners
+* TODO Prepare 03 : Reading and Quiz
+  DEADLINE: <2018-01-23 Tue>
+** TODO Reading [0/5]
+   The reading for this week will include one long chapter from the textbook and
+   four additional articles.
+*** TODO Software Weapons
+    Please familiarize yourself with the various types of software weapons. Note
+    that the classification scheme presented here is not mutually-exclusive;
+    some software weapons belong to more than one type. After reading this
+    chapter, you should be able to recite the types of software weapons,
+    enumerate the properties, and classify a given software weapon.
+*** TODO The Internet Worm Program: An Analysis
+    Another classic work. The most interesting thing here is the investigation
+    that was conducted. You do not need to read the entire article, but you may
+    choose to.
+
+    E. Spafford. "The Internet Worm Program: An Analysis", ACM SIGCOMM Computer
+    Communication Review Homepage archive, Volume 19 Issue 1, Jan. 1989, pp
+    17-57 [Online] Available: http://dl.acm.org/citation.cfm?id=66095
+*** TODO Reflections on Trusting Trust
+    This very short article describes how to create an invisible virus.
+
+    K. Thompson. "Reflections on Trusting Trust", Communications of the ACM
+    CACM Homepage archive, Volume 27 Issue 8, Aug 1984, pp 761-763 [Online]
+    Available: http://dl.acm.org/citation.cfm?id=358210
+*** TODO The Zombie Roundup
+    This paper does a good job of describing botnets.
+
+    E. Cooke et al. "The Zombie Roundup: Understanding, Detecting, and
+    Disrupting Botnets", SRUTI'05 Proceedings, pp 6-6 [Online] Available:
+    https://www.usenix.org/legacy/event/sruti05/tech/full_papers/cooke/cooke.pdf
+*** TODO The Anatomy of a Large-Scale Hypertextual Web Search Engine
+    If there ever was a paper that was required reading for any technical
+    professional, this one is it! You may find the authors of this paper
+    familiar. If not, you certainly will know about the company they started
+    based on this technology. If not, you should "Google it>"
+
+    S. Brin & L. Page. "The Anatomy of a Large-Scale Hypertextual Web Search
+    Engine", WWW7 Proceedings of the seventh international conference on World
+    Wide Web 7 archive, pp 107-117 [Online] Available:
+    https://doi.org/10.1016/S0169-7552(98)00110-X
+** TODO Quiz
+   As with last week, don't forget to take the quiz. The highest score will be
+   the recorded score.
+* TODO Research 03 [0/1]
+  DEADLINE: <2018-01-24 Wed>
+  - [ ] Look at the requirements for the research paper and start a plan
+* TODO Ponder 03: Malware Research
+  DEADLINE: <2018-01-27 Sat>
+  Identify a recent malware outbreak. Find three sources and write a "one page"
+  report of the malware. Additionally, read another's report, find an additional
+  source, and make a "meaningful contribution" to the report.
+** TODO Initial Report
+   First, choose a recent malware outbreak. This could be anything within the past
+   half-decade or so. Please do not choose anything from last century. Usually
+   students do best when they choose a topic that is interesting to them.
+
+   Find three sources describing the outbreak. These should be secondary or primary
+   sources only. If you are unsure if a source is secondary or preliminary, check
+   the qualifications of the author. If the author's job description is "staff
+   writer," he or she is probably not a recognized expert. On the other hand, if
+   the article is published in a peer-reviewed journal such as IEEE or ACM, then it
+   is at least a secondary source.
+
+   Finally, write a "one page" report of the malware. Make sure the report is fully
+   cited. Also make sure the grammar and spelling are professional. There should be
+   no first-person ("I") or second-person ("you") in the article. Please refer to
+   the Scholarly Writing page for details.
+
+   Your post will be graded according to the following scale:
+   - 50pt: "There is nothing to add," the writing is "professional"
+   - 45pt: All the requirements are met. Great sources coupled with an essay how the information from the source contributes to the issues in the discussion
+   - 35pt: One flaw in the report: grammatical or spelling mistake, weak source, key point missing, or problems with the writing quality
+   - 25pt: Serious problem with the report: grammatical or spelling errors making the article difficult to read, poor or missing sources, opinions, off-base comments, comments with factual errors, or major parts of the malware outbreak are not discussed
+   - 0pt: Article missing or does not demonstrate a significant amount of effort on the part of the author
+
+** TODO Meaningful Contribution
+   Please also read the report of a classmate. Find at least one additional source
+   and make a "meaningful contribution" to the report. This component will be
+   graded the same as the initial report:
+   - 50pt: The contribution is "outstanding"
+   - 45pt: All the requirements are met. Great sources coupled with an essay how the information from the source contributes to the issues in the discussion
+   - 35pt: One flaw in the report: grammatical or spelling mistake, weak source, key point missing, or problems with the writing quality
+   - 25pt: Serious problem with the report: grammatical or spelling errors making the article difficult to read, poor or missing sources, opinions, off-base comments, comments with factual errors, or major parts of the malware outbreak are not discussed
+   - 0pt: Article missing or does not demonstrate a significant amount of effort on the part of the author
+
+
