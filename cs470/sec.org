@@ -11,6 +11,11 @@
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 25.3.1 (Org mode 9.1.6)
 
+* Attackers Advantage
+  - Unknown attacks
+  - Defend all points - choose weakest point
+  - Strike at will
+  - Play dirty
 * TODO Ponder 02: Analysis [0/3]
   DEADLINE: <2018-01-20 Sat>
   - [ ] Add sources to each of the individual sections with references
