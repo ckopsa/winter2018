@@ -1,3 +1,6 @@
 [submodule "M335_KopsaC"]
 	path = M335_KopsaC
 	url = https://github.com/BYUI335/M335_KopsaC.git
+[submodule "kop14002"]
+	path = kop14002
+	url = https://github.com/rmn97154/kop14002.git
