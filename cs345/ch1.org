@@ -12,7 +12,7 @@
 #+CREATOR: Emacs 25.3.1 (Org mode 9.1.4)
 
 * Homework 1
-** Problems: [8/9]
+** Problems: [9/9]
 *** DONE 1. (2) What is multiprogramming and what is it used for?
     CLOSED: [2018-01-08 Mon 11:56]
     Multiprogramming is organizing jobs so that the CPU always has one to execute.
@@ -73,13 +73,24 @@
     to write bytes than to issue I/O instructions. The disadvantage is that it
     is vulnerable to accidental modification by means of an incorrect pointer to
     an unintended memory region.
-*** TODO 8. (4) Consider a hypothetical microprocessor having a 16-bit word size (for example, assume that the program counter and the address registers are 16 bits wide).
+*** DONE 8. (4) Consider a hypothetical microprocessor having a 16-bit word size (for example, assume that the program counter and the address registers are 16 bits wide).
+    CLOSED: [2018-01-17 Wed 15:00]
 **** a. What is the maximum memory, in Kbytes, that the processor can access directly if it is connected to a “16-bit wide memory” with a 16-bit data bus? [Hint: Stated another way, every time a read is done from RAM, the RAM delivers 16 bits, or 2 bytes of data.]
+     131072 bytes
+     131.072 Kbytes
+     128 Kbytes
 **** b. What is the maximum memory, in Kbytes that the processor can access directly if it is connected to an “8-bit wide memory” with a 8-bit wide data bus?
+     256 bytes
+     .256 Kbytes
+     .25 Kbytes
 **** c. What architectural features will allow this microprocessor to access a separate “I/O space” (it would have a memory space and I/O space)?
+     Special I/O instructions that specify the transfer of a byte or word to an
+     I/O port address.
 **** d. If separate input and output instructions can each specify which I/O port (usually there is one device for each I/O port) to select using an 8-bit I/O port number, how many I/O ports can the microprocessor support if the data path (data buss) to each I/O port is 8 bits wide? How many I/O ports can the microprocessor support if the data path is 16 bits wide? Explain.
      The format of the instruction might be like:
      | Bits indicating an IO instruction. | Register to read/write from/to | R/W | Port # that is 8 bits |
+     - 256 : 2^8 devices
+     - 65536 : 2^16 devices
 *** DONE 9. (2) In virtually all systems that include DMA modules, DMA access to main memory is given higher priority than processor access to main memory. Why?
     CLOSED: [2018-01-10 Wed 11:37]
     The CPU has caches to rely on for data items, and though /cycle stealing/
