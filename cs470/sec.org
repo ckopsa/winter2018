@@ -16,11 +16,11 @@
   - Defend all points - choose weakest point
   - Strike at will
   - Play dirty
-* TODO Ponder 02: Analysis [0/3]
-  DEADLINE: <2018-01-20 Sat>
-  - [ ] Add sources to each of the individual sections with references
-  - [ ] Format to look nice
-  - [ ] Turn In and CC Partners
+* DONE Ponder 02: Analysis [3/3]
+  CLOSED: [2018-01-20 Sat 14:46] DEADLINE: <2018-01-20 Sat>
+  - [X] Add sources to each of the individual sections with references
+  - [X] Format to look nice
+  - [X] Turn In and CC Partners
 * TODO Prepare 03 : Reading and Quiz
   DEADLINE: <2018-01-23 Tue>
 ** TODO Reading [0/5]
