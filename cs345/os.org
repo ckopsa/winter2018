@@ -152,10 +152,18 @@
     overhead.
 ** TODO 6.	(2.5) What is the purpose of system calls, and how do system calls relate to the OS and to the concept of dual-mode (kernel mode and user mode) operation?
    The purp
-* TODO Reading Chapter 3
-  DEADLINE: <2018-01-22 Mon>
+* DONE Reading Chapter 3
+  CLOSED: [2018-01-22 Mon 11:24] DEADLINE: <2018-01-22 Mon>
   Reading Processes: concept, scheduling, operations on (3.1 – 3.3)
 ** Notes
+   - ___-bound process - different processes can be bottle-necked by I/O or CPU
+   - job queue - linked list of all processes in the system
+   - scheduler - determines which job to execute next
+   - device queue - list of processes waiting for a particular I/O device
+   - context switch - save off the caches in the CPU to memory to switch to
+     another process
+   - cascading termination - when a process is terminated, all process children
+     are also terminated
 * TODO Lab 1-T2
   DEADLINE: <2018-01-23 Tue>
 * TODO GP1

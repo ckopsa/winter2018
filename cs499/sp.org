@@ -20,15 +20,18 @@
   and running some test programs with TensorFlow to verify everything was
   installed correctly. In addition, I spent some time learning the TensorFlow
   library through their "Getting Started" resource.
-* TODO 02 Status Report
-  DEADLINE: <2018-01-20 Sat>
-  I plan on becoming more familiar with neural networks and how to implement
-  those using the TensorFlow library. In particular, I am interested in learning
-  more about Convolutional Neural Networks and Recurrent LSTM Neural Networks. An
-  example currently exists from TensorFlow that does speech recognition via
-  convolutional neural networks, and within the explanation of that example
-  recurrent neural networks are mentioned as potentially superior way of doing
-  natural language processing.
+
+* DONE 02 Status Report
+  CLOSED: [2018-01-20 Sat 23:01] DEADLINE: <2018-01-20 Sat>
+  This week I spent around 4 hours familiarizing myself with the TensorFlow
+  library. I worked through a beginning tutorial with the MNIST data-set,
+  learning more about using TensorFlow for machine learning. I was able to
+  create a linear regression model and train it using a gradient descent
+  optimizer which minimized on the cross_entropy of the model. In the end, I was
+  able to classify the MNIST data-set to ~92% accuracy. This was an excellent
+  way to get my feet wet with the TensorFlow library. I will continue to work
+  tutorial after tutorial until I am better versed with TensorFlow to do more
+  complex things like working with recurrent neural networks.
 * TODO 03 Status Report
   DEADLINE: <2018-01-27 Sat>
 * TODO 04 SPED Talk
