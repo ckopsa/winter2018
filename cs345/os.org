@@ -96,10 +96,10 @@
    The CPU has caches to rely on for data items, and though /cycle stealing/
    can slow down the CPU computation, offloading the data-transfer work to a
    DMA controller generally improves the total system performance.
-* TODO Homework 2 [5/6]
-  DEADLINE: <2018-01-22 Mon>
+* DONE Homework 2 [6/6]
+  CLOSED: [2018-01-22 Mon 11:35] DEADLINE: <2018-01-22 Mon>
 ** DONE 1.	(4) List six services provided by an operating system that are designed to make it more convenient for users to use the computer system.
-   CLOSED: [2018-01-19 Fri 15:03]
+   CLOSED: [2018-01-22 Mon 11:35]
    1. User Interface
    2. Error Detection
    3. File Systems
@@ -150,8 +150,13 @@
     CLOSED: [2018-01-19 Fri 14:48]
     The performance of mircokernels can suffer due to increased system-function
     overhead.
-** TODO 6.	(2.5) What is the purpose of system calls, and how do system calls relate to the OS and to the concept of dual-mode (kernel mode and user mode) operation?
-   The purp
+** DONE 6.	(2.5) What is the purpose of system calls, and how do system calls relate to the OS and to the concept of dual-mode (kernel mode and user mode) operation?
+   CLOSED: [2018-01-22 Mon 11:35]
+   System calls provide the means for a user program to ask the operating system
+   to perform tasks reserved for the operating system on the user program’s
+   behalf. When a system call is made this utilizes the dual mode of the
+   operating system by switching from user mode to kernel mode.
+   
 * DONE Reading Chapter 3
   CLOSED: [2018-01-22 Mon 11:24] DEADLINE: <2018-01-22 Mon>
   Reading Processes: concept, scheduling, operations on (3.1 – 3.3)
