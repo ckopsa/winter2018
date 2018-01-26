@@ -11,6 +11,26 @@
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 25.3.1 (Org mode 9.1.6)
 
+* OSI Model
+  - Application - Generates and consumes network messages
+
+  - Presentation - Governs how a message is encoded by the application before
+    being sent on the network
+  
+  - Session - Provides a connection between individual messages between parties
+    so a conversation can exist
+  
+  - Transport - Ensures the messages traveling across the network arrive intact
+    and using the minimum amount of resources
+  
+  - Network - Handles routing of data-grams from the source host to the
+    destination host
+  
+  - Data-link - Is the means by which data passes between adjacent entities on
+    the network. Node-to-node
+  
+  - Physical - medium
+  
 * Attackers Advantage
   - Unknown attacks
   - Defend all points - choose weakest point
@@ -21,18 +41,21 @@
   - [X] Add sources to each of the individual sections with references
   - [X] Format to look nice
   - [X] Turn In and CC Partners
-* TODO Prepare 03 : Reading and Quiz
-  DEADLINE: <2018-01-23 Tue>
-** TODO Reading [0/5]
+* DONE Prepare 03 : Reading and Quiz
+  CLOSED: [2018-01-23 Tue 11:40] DEADLINE: <2018-01-23 Tue>
+** DONE Reading [5/5]
+   CLOSED: [2018-01-23 Tue 11:40]
    The reading for this week will include one long chapter from the textbook and
    four additional articles.
-*** TODO Software Weapons
+*** DONE Software Weapons
+    CLOSED: [2018-01-22 Mon 22:12]
     Please familiarize yourself with the various types of software weapons. Note
     that the classification scheme presented here is not mutually-exclusive;
     some software weapons belong to more than one type. After reading this
     chapter, you should be able to recite the types of software weapons,
     enumerate the properties, and classify a given software weapon.
-*** TODO The Internet Worm Program: An Analysis
+*** DONE The Internet Worm Program: An Analysis
+    CLOSED: [2018-01-23 Tue 11:39]
     Another classic work. The most interesting thing here is the investigation
     that was conducted. You do not need to read the entire article, but you may
     choose to.
@@ -40,29 +63,36 @@
     E. Spafford. "The Internet Worm Program: An Analysis", ACM SIGCOMM Computer
     Communication Review Homepage archive, Volume 19 Issue 1, Jan. 1989, pp
     17-57 [Online] Available: http://dl.acm.org/citation.cfm?id=66095
-*** TODO Reflections on Trusting Trust
+*** DONE Reflections on Trusting Trust
+    CLOSED: [2018-01-23 Tue 11:39]
     This very short article describes how to create an invisible virus.
 
     K. Thompson. "Reflections on Trusting Trust", Communications of the ACM
     CACM Homepage archive, Volume 27 Issue 8, Aug 1984, pp 761-763 [Online]
     Available: http://dl.acm.org/citation.cfm?id=358210
-*** TODO The Zombie Roundup
+*** DONE The Zombie Roundup
+    CLOSED: [2018-01-23 Tue 11:39]
     This paper does a good job of describing botnets.
 
     E. Cooke et al. "The Zombie Roundup: Understanding, Detecting, and
     Disrupting Botnets", SRUTI'05 Proceedings, pp 6-6 [Online] Available:
     https://www.usenix.org/legacy/event/sruti05/tech/full_papers/cooke/cooke.pdf
-*** TODO The Anatomy of a Large-Scale Hypertextual Web Search Engine
+*** DONE The Anatomy of a Large-Scale Hypertextual Web Search Engine
+    CLOSED: [2018-01-23 Tue 11:14]
     If there ever was a paper that was required reading for any technical
     professional, this one is it! You may find the authors of this paper
     familiar. If not, you certainly will know about the company they started
     based on this technology. If not, you should "Google it>"
 
+**** DONE Notes
+     CLOSED: [2018-01-23 Tue 11:14]
+
     S. Brin & L. Page. "The Anatomy of a Large-Scale Hypertextual Web Search
     Engine", WWW7 Proceedings of the seventh international conference on World
     Wide Web 7 archive, pp 107-117 [Online] Available:
     https://doi.org/10.1016/S0169-7552(98)00110-X
-** TODO Quiz
+** DONE Quiz
+   CLOSED: [2018-01-23 Tue 11:40]
    As with last week, don't forget to take the quiz. The highest score will be
    the recorded score.
 * TODO Research 03 [0/1]
@@ -97,6 +127,19 @@
    - 25pt: Serious problem with the report: grammatical or spelling errors making the article difficult to read, poor or missing sources, opinions, off-base comments, comments with factual errors, or major parts of the malware outbreak are not discussed
    - 0pt: Article missing or does not demonstrate a significant amount of effort on the part of the author
 
+*** References
+    Mattei, T. A. (2017). News: Privacy, Confidentiality, and Security of Health
+    Care Information: Lessons from the Recent WannaCry Cyberattack. World
+    Neurosurgery, 104972-974. doi:10.1016/j.wneu.2017.06.104
+
+    Patterson, O. D., Werbaneth, P., Bickford, J. P., & Radloff, S. (2017).
+    Guest Editorial Special Section on the 2016 SEMI Advanced Semiconductor
+    Manufacturing Conference. IEEE Transactions On Semiconductor Manufacturing,
+    30(4), 377. doi:10.1109/TSM.2017.2757298
+
+    Zimba, A., Wang, Z., & Chen, H. (2017). Multi-stage crypto ransomware
+    attacks: A new emerging cyber threat to critical infrastructure and
+    industrial control systems. ICT Express, doi:10.1016/j.icte.2017.12.007
 ** TODO Meaningful Contribution
    Please also read the report of a classmate. Find at least one additional source
    and make a "meaningful contribution" to the report. This component will be

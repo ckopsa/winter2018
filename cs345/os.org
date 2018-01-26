@@ -20,11 +20,11 @@
    Multiprogramming is used for increased CPU utilization.
 ** DONE 2. (2) What are some advantages of multiprocessor systems?
    CLOSED: [2018-01-08 Mon 11:46]
-  - Increased throughput - more work done in less time
-  - Economy of scale - Because they can share resources the can cost less
-  - Increased reliability - properly distributed tasks over several processes
-    can fail and allow other processors to pick up the remaining tasks,
-    graceful degradation
+   - Increased throughput - more work done in less time
+   - Economy of scale - Because they can share resources the can cost less
+   - Increased reliability - properly distributed tasks over several processes
+     can fail and allow other processors to pick up the remaining tasks,
+     graceful degradation
 ** DONE 3. (3) How do clustered systems differ from multiprocessor systems?
    CLOSED: [2018-01-08 Mon 11:56]
    Clustered systems differ from the multiprocessor systems in that they are
@@ -62,7 +62,7 @@
    display and often, a slow processor. - Handheld
 ** DONE 6. (3) What is the purpose of interrupts?
    CLOSED: [2018-01-10 Wed 11:34]
-  To notify the CPU when a device becomes ready for service. 
+   To notify the CPU when a device becomes ready for service. 
 *** What are the differences between a trap and an interrupt?
     Interrupts are from hardware and traps are from software.
 *** Can traps be generated intentionally by a user program? If so, for what purpose?
@@ -75,10 +75,10 @@
    an unintended memory region.
 ** DONE 8. (4) Consider a hypothetical microprocessor having a 16-bit word size (for example, assume that the program counter and the address registers are 16 bits wide).
    CLOSED: [2018-01-17 Wed 15:00]
-*** a. What is the maximum memory, in Kbytes, that the processor can access directly if it is connected to a “16-bit wide memory” with a 16-bit data bus? [Hint: Stated another way, every time a read is done from RAM, the RAM delivers 16 bits, or 2 bytes of data.]
+*** a. What is the maximum memory, in Bytes, that the processor can access directly if it is connected to a “16-bit wide memory” with a 16-bit data bus? [Hint: Stated another way, every time a read is done from RAM, the RAM delivers 16 bits, or 2 bytes of data.]
     131072 bytes
     131.072 Kbytes
-    128 Kbytes
+    128 Bytes
 *** b. What is the maximum memory, in Kbytes that the processor can access directly if it is connected to an “8-bit wide memory” with a 8-bit wide data bus?
     256 bytes
     .256 Kbytes
@@ -163,25 +163,292 @@
 ** Notes
    - ___-bound process - different processes can be bottle-necked by I/O or CPU
    - job queue - linked list of all processes in the system
+   - process control
    - scheduler - determines which job to execute next
    - device queue - list of processes waiting for a particular I/O device
    - context switch - save off the caches in the CPU to memory to switch to
      another process
    - cascading termination - when a process is terminated, all process children
      are also terminated
-* TODO Lab 1-T2
-  DEADLINE: <2018-01-23 Tue>
-* TODO GP1
-  DEADLINE: <2018-01-23 Tue>
-* TODO Reading Chapter 3 cont.
-  DEADLINE: <2018-01-24 Wed>
+* DONE Lab 1-T2
+  CLOSED: [2018-01-22 Mon 21:10] DEADLINE: <2018-01-23 Tue>
+* DONE GP1
+  CLOSED: [2018-01-22 Mon 21:10] DEADLINE: <2018-01-23 Tue>
+* DONE Reading Chapter 3 cont.
+  CLOSED: [2018-01-24 Wed 10:38] DEADLINE: <2018-01-24 Wed>
+  :LOGBOOK:
+  CLOCK: [2018-01-24 Wed 10:05]--[2018-01-24 Wed 10:37] =>  0:32
+  :END:
   IPC, Client-Server (3.4, 3.5.3, 1st paragraph in 3.6.1, three paragraphs in
   3.6.2, 3.6.3 – 3.7)
 ** Notes
-* TODO Quiz #1
-  DEADLINE: <2018-01-25 Thu>
-* TODO Reading Chapter 6
-  DEADLINE: <2018-01-26 Fri>
+* DONE Quiz #1
+  CLOSED: [2018-01-26 Fri 09:36] DEADLINE: <2018-01-25 Thu>
+* DONE Reading Chapter 6
+  CLOSED: [2018-01-26 Fri 11:33] DEADLINE: <2018-01-26 Fri>
   CPU scheduling (6.1 – 6.3.3)
+** Notes
+   - Preemptive scheduling :
+     - When a process switches from the running state to the waiting state.
+     - When a process switches from the running state to the ready state.
+     - When a process switches from the waiting state to the ready state.
+     - When a process terminates.
 * TODO Lab 2
   DEADLINE: <2018-01-27 Sat>
+* DONE Homework 3 [8/8]
+  CLOSED: [2018-01-26 Fri 09:36]
+** DONE (2) What user actions or OS events/actions initiate the creation of a process on a system? [Note that question is not asking for what happens during the creation of a process.]
+   CLOSED: [2018-01-22 Mon 16:01]
+   Double-clicking the executable and running it from the command line
+** DONE (4.5) Describe the differences between short-term, medium-term, and long-term scheduling.
+   CLOSED: [2018-01-22 Mon 16:16]
+   The main difference between schedulers is how often they are run:
+   - Long-term : selects processes from the mass-storage device pool and loads
+     them into memory for execution. Invoked infrequently
+   - Short-term : Selects from among the processes that are ready to execute and
+     allocates the CPU to one of them.
+   - Medium-term : can be added if degree of multiple programming needs to
+     decrease. Remove process from memory, store on disk, bring back in from
+     disk to continue execution: swapping.
+** DONE (3) Describe the actions taken by a kernel to context-switch between processes.
+   CLOSED: [2018-01-26 Fri 09:14]
+   When a context switch occurs, the kernel saves the context of the old process
+   in its PCB and loads the saved context of the new process scheduled to run
+   
+   1. In response to a clock interrupt, the OS saves the PC and user stack
+      pointer of the currently executing process, and transfers control to the
+      kernel clock interrupt handler
+   2. The clock interrupt handler saves the rest of the registers, as well as
+      other machine state, such as the state of the floating point registers, in
+      the process PCB.
+   3. The OS invokes the scheduler to determine the next process to execute,
+   4. The OS then retrieves the state of the next process from its PCB, and
+      restores the registers. This restore operation takes the processor back to
+      the state in which this process was previously interrupted, executing in
+      user code with user mode privileges.
+
+** DONE (3) Log in to a Linux lab node and do the following commands:
+   CLOSED: [2018-01-26 Fri 09:36]
+   - ps axjf
+     - PPID
+     - PID
+     - PGID
+     - SID
+     - TTY
+     - TPGID
+     - STAT
+     - UID
+     - TIME
+     - COMMAND 
+   - ps –efH
+     - no output :(
+*** DONE What do these commands show?
+    CLOSED: [2018-01-26 Fri 09:36]
+
+** DONE (2) What is swapping and what is its purpose?
+   CLOSED: [2018-01-26 Fri 09:18]
+   The key idea behind a medium-term scheduler is that sometimes it can be
+   advantageous to remove a process from memory (and from active contention for
+   the CPU ) and thus reduce the degree of multiprogramming. Later, the process
+   can be reintroduced into memory, and its execution can be continued where it
+   left off. This scheme is called swapping. The process is swapped out, and is
+   later swapped in, by the medium-term scheduler. Swapping may be necessary to
+   improve the process mix or because a change in memory requirements has
+   overcommitted available memory, requiring memory to be freed up.
+
+** DONE (2) In a number of early computers, an interrupt caused the register values to be stored in fixed locations associated with the given interrupt signal. Under what circumstances is this a practical technique? Explain why it is inconvenient in general.
+   CLOSED: [2018-01-26 Fri 09:29]
+   This technique is based on the assumption that an interrupted process /A/
+   will continue to run after the response to an interrupt. But, in general, an
+   interrupt may cause that basic monitor to preempt a process /A/ in favor of
+   another process /B/. It is now necessary to copy the execution state of
+   process /A/ from the location associated with the interrupt to the process
+   description associated with /A/. The machine might as well have stored them
+   there in the first place.
+
+   This technique is based on the assumption that an interrupted process /A/ will
+   continue to run after the response to an interrupt. But, in general, an
+   interrupt may cause the basic monitor to preempt a process /A/ in favor of
+   another process /B/. It is now necessary to copy the execution state of process
+   /A/ from the location associated with the interrupt to the process description
+   associated with /A/. The machine might as well have stored them there in the
+   first place.
+** DONE (1.5) When a process creates a new process using the fork() operation, which of the following state is shared between the parent process and the child process?
+   CLOSED: [2018-01-24 Wed 10:31]
+   - Stack
+   - Heap
+   - Shared memory segments
+     The child inherits open files from its parent and pipes.
+** DONE (2) Discuss at least two major complications that multiprogramming adds to an operating system.
+   CLOSED: [2018-01-26 Fri 09:24]
+   1. Multiprogramming requires complex scheduling in order to make sure all
+      active processes get time on the processor.
+   2. Multiprogramming requires each process to have its own memory, and which
+      process has which block of memory must be managed.
+   
+* TODO Homework 4 [5/10]
+  #+BEGIN_SRC sh
+    open hw4-ch6_osc_wsosim.doc
+  #+END_SRC
+** DONE What is usually the critical performance requirement in an interactive operating system?
+   CLOSED: [2018-01-26 Fri 11:21]
+   Adequate response time
+** DONE What is the difference between turnaround time and response time?
+   CLOSED: [2018-01-26 Fri 11:15]
+   - Turnaround time : From the point of view of a particular process, the
+     important criterion is how long it takes to execute that process. */The
+     interval from the time of submission of a process to the time of completion
+     is the turnaround time/*. Turnaround time is the sum of the periods spent
+     waiting to get into memory, waiting in the ready queue, executing on the
+     CPU, and doing I/O.
+   - Response time : In an interactive system, turnaround time may not be the
+     best criterion. Often, a process can produce some output fairly early and
+     can continue computing new results while previous results are being output
+     to the user. Thus, another measure is */the time from the submission of a
+     request until the first response is produced/*. This measure, called
+     response time, is the time it takes to start responding, not the time it
+     takes to output the response. The turnaround time is generally limited by
+     the speed of the output device.
+** DONE What is the difference between preemptive and non-preemptive scheduling?
+   CLOSED: [2018-01-26 Fri 11:18]
+  - non-preemptive scheduling : there is no choice in terms of scheduling.
+  - preemptive scheduling : there is choice in terms of scheduling.
+** DONE Consider the exponential average formula used to predict the length of the next CPU burst. What are the implications of assigning the following values to the parameters used by the algorithm?
+   CLOSED: [2018-01-26 Fri 11:32]
+   a. α = 0 and τ_{0} = 100 milliseconds
+   τ_{1} = 0t_0 + (1 - 0) 100
+   τ_{1} = 0t_0 + 100 = 100
+
+   b. α = 0.99 and τ_{0} = 10 milliseconds
+   τ_{1} = .99t_0 + (1 - .99) 100
+   τ_{1} = .99t_0 + .01 * 100
+   τ_{1} = .99t_0 + 1.0
+
+** DONE Which of the following scheduling algorithms could result in starvation?
+   CLOSED: [2018-01-26 Fri 11:23]
+   #+BEGIN_QUOTE
+   First-come, first-served 
+
+   Shortest job first 
+
+   *Round Robin Priority*
+   #+END_QUOTE
+
+** TODO Consider the following set of processes:
+   
+   | Process Name | Arrive Time | Service Time |
+   |----------------+---------------+----------------|
+   | A              |             0 |              3 |
+   | B              |             1 |              5 |
+   | C              |             3 |              2 |
+   | D              |             9 |              5 |
+   | E              |            12 |              5 |
+
+   #+BEGIN_QUOTE
+   In the second table, darken squares to indicate the order in which processes
+   execute. In the first table, fill in the statistics requested. T_{r}/T_{s} =
+   Turnaround Time / Service Time. T_{r}/T_{s} is another metric against which
+   scheduling algorithms are evaluated. Assume that arriving jobs enter the
+   system 'just before' the stated arrival time so that they are in the system
+   and are seen by the scheduler at the stated arrival time.
+   #+END_QUOTE
+
+   |               |                         |     |   |   |   |    | Mean |
+   |---------------+-------------------------+-----+---+---+---+----+------|
+   |               | Process                 |   A | B | C | D |  E |      |
+   |               | Arrival Time            |   0 | 1 | 3 | 9 | 12 |      |
+   |               | Service Time (T_{s})    |   3 | 5 | 2 | 5 |  5 |      |
+   | FCFS          | Finish Time             |   3 |   |   |   |    |      |
+   |               | Turnaround Time (T_{r}) | 3.0 |   |   |   |    |      |
+   |               | T_{r}/T_{s}             |     |   |   |   |    |      |
+   | RR q=1        | Finish Time             |     |   |   |   |    |      |
+   |               | Turnaround Time (T_{r}) |     |   |   |   |    |      |
+   |               | T_{r}/T_{s}             |     |   |   |   |    |      |
+   | RR q=4        | Finish Time             |     |   |   |   |    |      |
+   |               | Turnaround Time (T_{r}) |     |   |   |   |    |      |
+   |               | T_{r}/T_{s}             |     |   |   |   |    |      |
+   | SJF           | Finish Time             |     |   |   |   |    |      |
+   | Nonpreemptive | Turnaround Time (T_{r}) |     |   |   |   |    |      |
+   |               | T_{r}/T_{s}             |     |   |   |   |    |      |
+   | SRT           | Finish Time             |     |   |   |   |    |      |
+   |               | Turnaround Time (T_{r}) |     |   |   |   |    |      |
+   |               | T_{r}/T_{s}             |     |   |   |   |    |      |
+   | FB q=1        | Finish Time             |     |   |   |   |    |      |
+   |               | Turnaround Time (T_{r}) |     |   |   |   |    |      |
+   |               | T_{r}/T_{s}             |     |   |   |   |    |      |
+
+   The FB algorithm is a multilevel feedback-queue scheduling algorithm with a
+   large number of queues. A process moves to the next lower queue after
+   receiving a single time quantum of service even if no other process is in the
+   system.\\
+   Note: 0, 5, 10, and all other time values are at one point in time. The
+   vertical line under the 0 (zero) is where time starts. A process entering the
+   system at time 0 is in the ready queue at time 0.
+
+   This following question use the [[http://www.training.com.br/sosim/indexen.htm][SOsim: Simulator for Operating Systems
+   Education]] to explore topics and issues dealing with processes and CPU
+   scheduling.
+
+   To get started, download and unzip the SOsim program
+   ([[http://www.training.com.br/sosim/indexen.htm]] or from Blackboard). Run SOsim
+   and explore the various menus and buttons to become familiar with the
+   simulator and the statistics it provides.
+
+   Use SOsim to answer the questions below. You might wish to get together with
+   other students in the class, after you have individually worked on the
+   questions, to discuss what you have learned and to determine your answers.
+
+   Tips for using SOsim: 
+
+   - SOsim doesn't run well on some new PCs with faster processors and lots of
+     memory
+
+   - The log window provides some useful information.
+
+   - Some of the statistics in SOsim are of questionable quality or are not what
+     you might think they should be.
+
+   - Stopping the simulator, creating processes, and then letting the simulator
+     run for a certain amount of time before stopping it again, might prove
+     helpful.
+
+   - You may need to exit and restart the simulator before each simulation run.
+     /This is especially true when changing options./
+
+   - If priorities are different, your results will vary depending on whether you
+     start the IO or CPU job first.
+
+** TODO No Priority Scheduling
+
+   There are a couple of scheduling priority options that are accessed with the
+   "Options" menu of the "Processor Manager" window; make sure they are both
+   turned off and that you restart SOsim after turning them off. With the options
+   off, create two processes, one CPU-bound and the other IO-bound (IO\_1) at
+   priority 0, and simulate round-robin scheduling without priority. Run with
+   some different settings for "IO wait time" and "Timeslice." What settings
+   create the largest waits for processes in the ready queue? Describe what
+   settings you used and what results were obtained. Take a look at the various
+   windows available under the "Windows" menu.
+
+** TODO Starvation
+
+   Using only two processes, simulate starvation. Describe what you did and why
+   it produced starvation. What criteria might be utilized to define process
+   priority to help prevent starvation?
+
+** TODO Static Priority Scheduling
+
+   Enable priority preemptive scheduling (dynamic priority scheduling should be
+   off; stop and restart SOsim) and create a CPU-bound process at priority level
+   three and an IO-bound (IO\_1) process with a priority level of four. What is
+   happening? How does this situation compare with that done in item seven? How
+   does changing the IO wait time and timeslice affect the simulation?
+
+** TODO Dynamic Priority Scheduling
+
+   Create three or more processes and run a simulation using dynamic priority
+   scheduling (turn off priority preemptive scheduling and restart). What does
+   this do? What is the difference between process types IO\_1, IO\_2 and IO\_3?
+   Is it possible to starve a process when using dynamic priority scheduling with
+   SOsim? [Hint: it helps to start all the processes with the same priority and
+   have a CPU bound process in the mix.]

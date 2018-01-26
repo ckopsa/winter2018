@@ -1,0 +1,29 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t
+#+OPTIONS: broken-links:nil c:nil creator:nil d:(not "LOGBOOK") date:t e:t
+#+OPTIONS: email:nil f:t inline:t num:t p:nil pri:nil prop:nil stat:t tags:t
+#+OPTIONS: tasks:t tex:t timestamp:t title:t toc:t todo:t |:t
+#+TITLE: WannaCry
+#+DATE: <2018-01-24 Wed>
+#+AUTHOR: Colton Kopsa
+#+EMAIL: Aghbac@Aghbac.local
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 25.3.1 (Org mode 9.1.6)
+
+* Impact
+
+* What is it?
+* References
+  Mattei, T. A. (2017). News: Privacy, Confidentiality, and Security of Health
+  Care Information: Lessons from the Recent WannaCry Cyberattack. World
+  Neurosurgery, 104972-974. doi:10.1016/j.wneu.2017.06.104
+
+  Patterson, O. D., Werbaneth, P., Bickford, J. P., & Radloff, S. (2017).
+  Guest Editorial Special Section on the 2016 SEMI Advanced Semiconductor
+  Manufacturing Conference. IEEE Transactions On Semiconductor Manufacturing,
+  30(4), 377. doi:10.1109/TSM.2017.2757298
+
+  Zimba, A., Wang, Z., & Chen, H. (2017). Multi-stage crypto ransomware
+  attacks: A new emerging cyber threat to critical infrastructure and
+  industrial control systems. ICT Express, doi:10.1016/j.icte.2017.12.007
