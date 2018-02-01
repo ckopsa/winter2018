@@ -11,6 +11,21 @@
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 25.3.1 (Org mode 9.1.6)
 
+* Status Report Template
+** Project Title:
+   TensorFlow
+** Team Members (if applicable):
+   Colton Kopsa & Quade Morrison
+** Overall Status (on-schedule, behind, ahead):
+** Hours: (replace ## with your hours for each item)
+   ## - Number of hours worked since last update
+   ## - Total number of hours worked on the project thus far
+   ## - Number of total hours anticipated at completion
+** Accomplishments:
+** Challenges:
+** Plans / Goals for next week:
+** SPED Talk Insight (Briefly describe an insight or something interesting you learned from the SPED talks this week):
+** 9: Other comments for the instructor:
 * DONE 01 Status Report
   CLOSED: [2018-01-20 Sat 12:12]
   An idea that I would like to put my efforts towards is natural language
@@ -32,7 +47,104 @@
   way to get my feet wet with the TensorFlow library. I will continue to work
   tutorial after tutorial until I am better versed with TensorFlow to do more
   complex things like working with recurrent neural networks.
-* TODO 03 Status Report
-  DEADLINE: <2018-01-27 Sat>
-* TODO 04 SPED Talk
+* DONE 03 Status Report
+  CLOSED: [2018-01-28 Sun 21:08] DEADLINE: <2018-01-27 Sat>
+  Br. Burton,
+  
+  In our brainstorming of ideas we developed some criteria along with some ideas
+  that could possibly satisfy those criteria. The criteria were pretty simple:
+  - Uses TensorFlow.
+  - Causes people to say "Wow that's cool".
+  - Has real-world application.
+  The following are the ideas we generated towards those goals:
+** Free Parking Recognition
+   - TensorFlow : Identify the number of free parking spaces in an image.
+   - "Wow that's cool" & Real world application : We could integrate it at the
+     school and provide students/faculty with information on which parking areas
+     have free parking spots.
+** Voice Model Production
+   - TensorFlow : Train speech models of people, and then use their voice to do
+     Text-to-speech.
+   - "Wow that's cool" : People could hear themselves say things they've never
+     said.
+   - Real world application : You could personalize different TTS services that
+     you use with voices you're more comfortable with.
+** Speech Recognition
+   - TensorFlow : Train speech models of people, provide speech-to-text or
+     keyword services.
+   - "Wow that's cool" : This has less of a wow-factor now that speech
+     recognition is a pretty common, but it would still be somewhat impressive.
+   - Real world application : Provide a library that would allow people to train
+     their own personal voice models and use speech recognition services.
+     
+   If you have any other suggestions on how to scope these projects, or have any
+   interesting projects that meet our criteria, we would love to get any input.
+* DONE 04 SPED Talk
+  CLOSED: [2018-01-31 Wed 09:53] DEADLINE: <2018-02-03 Sat>
+  The following are the guidelines for these presentations:
+
+  They must be short. There is a hard time limit of 5 minutes. This goes very
+  quickly, so you will have to plan diligently to ensure that you can cover the
+  most important components of the topic in that time period.
+
+  They should focus on the topic you are learning more than your project itself.
+  Your goal with this talk is to educate the other students in the course on the
+  new computer science topic that you are learning about. You can mention your
+  project and how the topic applies, but your talk should be focus on the new
+  topic, so it is more generally applicable.
+
+  They should be professional. While the hope is that you will not have to spend
+  a lot of time preparing these talks, they should still be professional, and
+  not have the appearance of being thrown together last minute.
+
+  When you present, you should add a link to your presentation in the
+  appropriate discussion board. Then, you must also upload a link to the
+  assignment submission for it.
+* TODO 04 Status Report
   DEADLINE: <2018-02-03 Sat>
+** Project Title:
+   TensorFlow
+** Team Members (if applicable):
+   Colton Kopsa & Quade Morrison
+** Overall Status (on-schedule, behind, ahead):
+   on-schedule
+** Hours: (replace ## with your hours for each item)
+   - 04 - Number of hours worked since last update
+   - 14 - Total number of hours worked on the project thus far
+   - ?? - Number of total hours anticipated at completion
+** Accomplishments:
+   I learned how to work with Convolutional Neural Networks using TensorFlow.
+   There was a similar tutorial to the one I did with the MNIST dataset using
+   again the MNIST dataset, but with the CNN instead. It walked through building
+   a CNN from the ground up using TensorFlow, and then had you train on the
+   MNIST dataset and at the end it would print your accuracy. My results were in
+   the 98% range which was interesting. I learned that with CNNs you have 3
+   phases, the convolutional phase when you add dimensions to your data using
+   filters, the pooling phase where you condense the data, and then the normal
+   neural net phase when you train and classify your data. So basically, add
+   dimensions, make smaller, repeat (if you want), and then finally train your
+   classification.
+** Challenges:
+   Although my knowledge is deepening about TensorFlow and neural networks, we
+   still need to hone in on a project.
+** Plans / Goals for next week:
+   There is a tutorial about recurrent neural networks that I would like to go
+   through just to round off the edges of my neural network knowledge. We also
+   will be deciding a general direction for our project this week, which we can
+   then continue to build on next week by creating a plan for how we will get
+   things done.
+** SPED Talk Insight (Briefly describe an insight or something interesting you learned from the SPED talks this week):
+   I was the SPED Talk speaker.
+** 9: Other comments for the instructor:
+   None this week.
+* Proposal
+** Contact information (for all team members, if applicable).
+** Abstract
+** Background
+** Description
+** Significance
+** New Computer Science Concepts
+** Interestingness
+** Tasks and Schedule
+** Required Resources with Costs (if applicable)
+

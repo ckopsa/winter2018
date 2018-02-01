@@ -36,6 +36,15 @@
   - Defend all points - choose weakest point
   - Strike at will
   - Play dirty
+* Direct Script Injection
+- Scripting Functionality
+- Malicious Code
+- Victim Opens the Document
+* Reflected Script Injection
+  - Create the Payload
+  - Insert Payload Onto Host
+  - Victim visits infected site
+  - Exploitation
 * DONE Ponder 02: Analysis [3/3]
   CLOSED: [2018-01-20 Sat 14:46] DEADLINE: <2018-01-20 Sat>
   - [X] Add sources to each of the individual sections with references
@@ -95,15 +104,13 @@
    CLOSED: [2018-01-23 Tue 11:40]
    As with last week, don't forget to take the quiz. The highest score will be
    the recorded score.
-* TODO Research 03 [0/1]
-  DEADLINE: <2018-01-24 Wed>
-  - [ ] Look at the requirements for the research paper and start a plan
-* TODO Ponder 03: Malware Research
-  DEADLINE: <2018-01-27 Sat>
+* DONE Ponder 03: Malware Research
+  CLOSED: [2018-01-28 Sun 21:01] DEADLINE: <2018-01-27 Sat>
   Identify a recent malware outbreak. Find three sources and write a "one page"
   report of the malware. Additionally, read another's report, find an additional
   source, and make a "meaningful contribution" to the report.
-** TODO Initial Report
+** DONE Initial Report
+   CLOSED: [2018-01-28 Sun 21:01]
    First, choose a recent malware outbreak. This could be anything within the past
    half-decade or so. Please do not choose anything from last century. Usually
    students do best when they choose a topic that is interesting to them.
@@ -150,4 +157,12 @@
    - 25pt: Serious problem with the report: grammatical or spelling errors making the article difficult to read, poor or missing sources, opinions, off-base comments, comments with factual errors, or major parts of the malware outbreak are not discussed
    - 0pt: Article missing or does not demonstrate a significant amount of effort on the part of the author
 
-
+* DONE Prepare 04 : Reading
+  CLOSED: [2018-01-30 Tue 08:36] DEADLINE: <2018-01-30 Tue>
+  [[https://content.byui.edu/file/2390954c-eadb-4592-aa96-5a29275f9404/1/Prepare/470.04.Prepare.html][Assignment]]
+* DONE Ponder 04 : Sanitization Program
+  CLOSED: [2018-01-30 Tue 08:36] DEADLINE: <2018-02-03 Sat>
+  [[https://content.byui.edu/file/2390954c-eadb-4592-aa96-5a29275f9404/1/Ponder/470.04.Lab.html][Assignment]] 
+* TODO Prove : Research Paper
+  DEADLINE: <2018-02-03 Sat>
+  [[https://content.byui.edu/file/2390954c-eadb-4592-aa96-5a29275f9404/1/Ponder/470.04.ResearchTopic.html][Assignment]] 

@@ -193,8 +193,25 @@
      - When a process switches from the running state to the ready state.
      - When a process switches from the waiting state to the ready state.
      - When a process terminates.
-* TODO Lab 2
-  DEADLINE: <2018-01-27 Sat>
+* DONE Lab 2
+  CLOSED: [2018-01-27 Sat 22:34] DEADLINE: <2018-01-27 Sat>
+** Conclusions
+   - I was successful on the first part of the lab
+   - I was successful on the second part of the lab
+   - One difficulty I encountered was forgetting to add the '#define' to the
+     '/usr/include/asm/unistd.h' file. This required that I reboot an extra time
+     and trace my steps to make sure everything was placed properly.
+   - I learned that modifications to the kernel are somewhat simple. I also
+     learned that the kernel could be compiled and installed on a machine while
+     it was running, but just requires a reboot for things changes to be made to
+     the running kernel.
+   - I think it would be easier to make a custom distribution on an ISO for this
+     lab that way any desired virtual machine software could be used, as opposed
+     to having to use VMware.
+** Hello World Screenshot
+   [[./hello_world.png]]
+** Write File Screenshot
+   [[./write_file.png]]
 * DONE Homework 3 [8/8]
   CLOSED: [2018-01-26 Fri 09:36]
 ** DONE (2) What user actions or OS events/actions initiate the creation of a process on a system? [Note that question is not asking for what happens during the creation of a process.]
@@ -286,10 +303,14 @@
    2. Multiprogramming requires each process to have its own memory, and which
       process has which block of memory must be managed.
    
-* TODO Homework 4 [5/10]
+* DONE Homework 4 [10/10]
+  CLOSED: [2018-01-31 Wed 14:36] DEADLINE: <2018-02-02 Fri>
   #+BEGIN_SRC sh
     open hw4-ch6_osc_wsosim.doc
   #+END_SRC
+  
+  #+RESULTS:
+
 ** DONE What is usually the critical performance requirement in an interactive operating system?
    CLOSED: [2018-01-26 Fri 11:21]
    Adequate response time
@@ -311,8 +332,8 @@
      the speed of the output device.
 ** DONE What is the difference between preemptive and non-preemptive scheduling?
    CLOSED: [2018-01-26 Fri 11:18]
-  - non-preemptive scheduling : there is no choice in terms of scheduling.
-  - preemptive scheduling : there is choice in terms of scheduling.
+   - non-preemptive scheduling : there is no choice in terms of scheduling.
+   - preemptive scheduling : there is choice in terms of scheduling.
 ** DONE Consider the exponential average formula used to predict the length of the next CPU burst. What are the implications of assigning the following values to the parameters used by the algorithm?
    CLOSED: [2018-01-26 Fri 11:32]
    a. α = 0 and τ_{0} = 100 milliseconds
@@ -334,7 +355,8 @@
    *Round Robin Priority*
    #+END_QUOTE
 
-** TODO Consider the following set of processes:
+** DONE Consider the following set of processes:
+   CLOSED: [2018-01-29 Mon 14:57]
    
    | Process Name | Arrive Time | Service Time |
    |----------------+---------------+----------------|
@@ -418,7 +440,8 @@
    - If priorities are different, your results will vary depending on whether you
      start the IO or CPU job first.
 
-** TODO No Priority Scheduling
+** DONE No Priority Scheduling
+   CLOSED: [2018-01-31 Wed 14:07]
 
    There are a couple of scheduling priority options that are accessed with the
    "Options" menu of the "Processor Manager" window; make sure they are both
@@ -429,22 +452,35 @@
    create the largest waits for processes in the ready queue? Describe what
    settings you used and what results were obtained. Take a look at the various
    windows available under the "Windows" menu.
+   
+   Minimize IO wait time and maximize time slice, minimize clock
 
-** TODO Starvation
+** DONE Starvation
+   CLOSED: [2018-01-31 Wed 14:25]
 
    Using only two processes, simulate starvation. Describe what you did and why
    it produced starvation. What criteria might be utilized to define process
    priority to help prevent starvation?
+   
+   One process has maximum priority, and the other doesn't. A possible solution
+   to starvation is to use a scheduling algorithm with priority queue that also
+   uses the aging technique. Aging is a technique of gradually increasing the
+   priority of processes that wait in the system for a long time.
 
-** TODO Static Priority Scheduling
+** DONE Static Priority Scheduling
+   CLOSED: [2018-01-31 Wed 14:30]
 
    Enable priority preemptive scheduling (dynamic priority scheduling should be
    off; stop and restart SOsim) and create a CPU-bound process at priority level
    three and an IO-bound (IO\_1) process with a priority level of four. What is
    happening? How does this situation compare with that done in item seven? How
    does changing the IO wait time and timeslice affect the simulation?
+   
+   The CPU process will give way to the IO process and at the end of it's
+   timeslice, because it has priority.
 
-** TODO Dynamic Priority Scheduling
+** DONE Dynamic Priority Scheduling
+   CLOSED: [2018-01-31 Wed 14:35]
 
    Create three or more processes and run a simulation using dynamic priority
    scheduling (turn off priority preemptive scheduling and restart). What does
@@ -452,3 +488,53 @@
    Is it possible to starve a process when using dynamic priority scheduling with
    SOsim? [Hint: it helps to start all the processes with the same priority and
    have a CPU bound process in the mix.]
+   
+   The different inputs have different set priorities, or IO1 is priority 1
+   input to 3 and it looks like if enough higher priority IOs exist then the CPU
+   bound process is starved.
+* DONE Weekly Reading [3/3]
+  CLOSED: [2018-02-01 Thu 15:30]
+** DONE CPU scheduling (6.3.4 – 6.3.6, 6.5; Lab 3 handout)
+   CLOSED: [2018-01-29 Mon 16:19]
+   :LOGBOOK:
+   CLOCK: [2018-01-29 Mon 09:00]--[2018-01-29 Mon 10:00] =>  1:00
+   :END:
+** DONE CPU scheduling (6.7 – 6.9)
+   CLOSED: [2018-01-31 Wed 11:42]
+** DONE Threads (4.1 – 4.4)
+   CLOSED: [2018-02-01 Thu 15:30]
+* DONE Quiz #2
+  CLOSED: [2018-02-01 Thu 15:30] DEADLINE: <2018-02-03 Sat>
+  [[https://byui.brightspace.com/d2l/common/dialogs/quickLink/quickLink.d2l?ou=377202&type=schedule&rcode=byui_production-1718001][Quiz #2]] 
+* TODO Lab 2
+  DEADLINE: <2018-02-07 Wed>
+  [[https://byui.brightspace.com/d2l/common/dialogs/quickLink/quickLink.d2l?ou=377202&type=schedule&rcode=byui_production-1723972][Assignment]]
+* TODO Homework 5 [0/7]
+  DEADLINE: <2018-02-07 Wed>
+** TODO (3) What code is responsible for doing context switches between the user-level threads in a process? What is this code required to do?
+
+** TODO (3) Explain how a multithreaded application may provide better performance than a single-threaded application even on a single-processor system.
+
+** TODO (2) Which of the following components of program state are shared across threads in a multithreaded process? (There may be more than one.)
+
+   A) Register values	B) Heap Memory C) Global variables D) Stack memory
+
+** TODO (3) Discuss three advantages of user-level threads (ULTs) over kernel-level threads (KLTs).
+
+** TODO (1) What are the three main thread libraries in use today?
+
+** TODO (3) List three threading issues. Briefly explain each of the issues (not how the issue might be solved, jut what is the issue).
+
+** TODO (3) A Solaris thread which is currently running on a CPU may voluntarily give up the CPU to another thread. Which of the following statements is correct:
+
+   1. A Solaris user-level thread (ULT) may yield to another thread of the same priority.
+
+   2. A Solaris user-level thread (ULT) may yield to another thread of the same priority or higher priority.
+
+   3. A Solaris user-level thread (ULT) may yield to another thread of the same priority, a lower priority, or higher priority.
+
+   Assume that anytime the priority of a thread in the system might change, the user-level thread scheduler is called to determine which process gets the processor. [Help: you might look at the sched_yield (which is for kernel threads, but might still be helpful) by doing: man 2 sched_yield.]
+
+   Explain why you chose the one you did.
+
+

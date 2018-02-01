@@ -11,19 +11,76 @@
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 25.3.1 (Org mode 9.1.6)
 
-* Impact
+* WannaCry
+  WannaCry was ransomware/worm authored by North Korea. On May 12th 2017,
+  WannaCry infected 200,000 computers in 150 countries. Hospitals, couriers,
+  railways, natural gas providers, "and virtually every other industry" were
+  affected. [2] The ransom was $300, if the ransom remained unpaid it would
+  double, and eventually delete the encrypted data if no payment was made. "The
+  WannaCry outbreak took advantage of an exploit stolen from the U.S. National
+  Security Agency, a vulnerability that had an available patch for months
+  prior." [2] The speed at which it spread from system to system was attributed
+  to its "ability to exploit a vulnerability in Microsoft Windows: one that
+  allows unauthenticated remote code execution." [2]
 
-* What is it?
+  When it was able to gain access to a computer it would check to see if a
+  unique mutex was present on the machine before encrypting data. If that mutex
+  was not there, it would encrypt their data. It would be careful not to encrypt
+  everything, but "only the data files of a particular extension." [3] The
+  encryption used was "an asymmetric RSA-2048 public key to encrypt the
+  symmetric key ... which are computationally impossible to crack without the
+  corresponding decryption keys." [3] Then it would use the SMB network protocol
+  to look for other vulnerable systems to spread to.
+
+* Notes
+  - What is it?
+    - Ransomware/Worm [3]
+    - North Korea[1]
+    - Ransom would increase as time passed [1]
+    - Leveraged the SMB network protocol [3]
+    - "Encrypts only the data files of a particular extension" [3]
+    - "Checks for the presence of a mutex /Global\MsWinZonesCacheCounterMutexA/
+      before encryption to check if the host being exploited has already been
+      infected." [3]
+    - Uses "an asymmetric RSA-2048 public key to encrypt the symmetric key ...
+      which are computationally impossible to crack without the corresponding
+      decryption keys." [3]
+
+  - How/when did it happen?
+    - May 12, 2017 [2][1]
+    - "The WannaCry outbreak took advantage of an exploit stolen from the U.S.
+      National Security Agency, a vulnerability that had an available patch for
+      months prior" [2]
+    - "The WannaCry ransomware took advantage of an inherent vulnerability of
+      Microsoft Windows, which had already been previously explored by the U.S.
+      National Security Agency (NSA) for secret surveillance purposes." [1]
+    - "The rapid spread of WannaCry stems from its ability to exploit a
+      vulnerability in Microsoft Windows: one that allows unauthenticated remote
+      code execution." [2]
+    - WannaCry was able to self-replicate. [2]
+  - What was the effect?
+    - British National Health System (NHS) network [2][1]
+      + "Over 50,000 systems were affected, forcing affected hospitals to divert
+        patients to other facilities." [2][1]
+    - 150 countries [2][1]
+    - 200,000 computers [1]
+    - Railways (e.g. Deutsche Bahn) [2][1]
+    - Automotive industry (e.g. Renault and Honda) [2]
+    - Couriers (e.g. FedEx) [2][1]
+    - Natural gas providers (e.g. Iberdrola) [2]
+    - Banks (e.g. BBVA) [2]
+    - "Virtually every industry" [2]
+
 * References
-  Mattei, T. A. (2017). News: Privacy, Confidentiality, and Security of Health
-  Care Information: Lessons from the Recent WannaCry Cyberattack. World
+  [1] Mattei, T. A. (2017). News: Privacy, Confidentiality, and Security of
+  Health Care Information: Lessons from the Recent WannaCry Cyberattack. World
   Neurosurgery, 104972-974. doi:10.1016/j.wneu.2017.06.104
 
-  Patterson, O. D., Werbaneth, P., Bickford, J. P., & Radloff, S. (2017).
+  [2] Patterson, O. D., Werbaneth, P., Bickford, J. P., & Radloff, S. (2017).
   Guest Editorial Special Section on the 2016 SEMI Advanced Semiconductor
   Manufacturing Conference. IEEE Transactions On Semiconductor Manufacturing,
   30(4), 377. doi:10.1109/TSM.2017.2757298
 
-  Zimba, A., Wang, Z., & Chen, H. (2017). Multi-stage crypto ransomware
-  attacks: A new emerging cyber threat to critical infrastructure and
-  industrial control systems. ICT Express, doi:10.1016/j.icte.2017.12.007
+  [3] Zimba, A., Wang, Z., & Chen, H. (2017). Multi-stage crypto ransomware
+  attacks: A new emerging cyber threat to critical infrastructure and industrial
+  control systems. ICT Express, doi:10.1016/j.icte.2017.12.007
