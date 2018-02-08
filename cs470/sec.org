@@ -163,6 +163,22 @@
 * DONE Ponder 04 : Sanitization Program
   CLOSED: [2018-01-30 Tue 08:36] DEADLINE: <2018-02-03 Sat>
   [[https://content.byui.edu/file/2390954c-eadb-4592-aa96-5a29275f9404/1/Ponder/470.04.Lab.html][Assignment]] 
-* TODO Prove : Research Paper
-  DEADLINE: <2018-02-03 Sat>
+* DONE Prove : Research Paper
+  CLOSED: [2018-02-02 Fri 11:34] DEADLINE: <2018-02-03 Sat>
   [[https://content.byui.edu/file/2390954c-eadb-4592-aa96-5a29275f9404/1/Ponder/470.04.ResearchTopic.html][Assignment]] 
+* DONE Prepare 05 : Reading
+  CLOSED: [2018-02-06 Tue 12:44] SCHEDULED: <2018-02-06 Tue> DEADLINE: <2018-02-06 Tue>
+  [[https://content.byui.edu/file/2390954c-eadb-4592-aa96-5a29275f9404/1/Prepare/470.05.Prepare.html][Assignment]]
+* DONE Ponder 05 : Stack Manipulation
+  CLOSED: [2018-02-08 Thu 10:16] SCHEDULED: <2018-02-07 Wed> DEADLINE: <2018-02-10 Sat>
+  [[https://content.byui.edu/file/2390954c-eadb-4592-aa96-5a29275f9404/1/Ponder/470.05.Lab.html][Assignment]] 
+* DONE Prove 05 : Research Paper
+  CLOSED: [2018-02-08 Thu 10:16] SCHEDULED: <2018-02-08 Thu> DEADLINE: <2018-02-10 Sat>
+  [[https://content.byui.edu/file/2390954c-eadb-4592-aa96-5a29275f9404/1/Ponder/470.05.ResearchSources.html][Assignment]]
+  
+  [[https://github.com/revolutionary/zergRush/blob/master/zergRush.c][Zerg Rush]] 
+  [[https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3874][CVE ID]] 
+  [[https://issuetracker.google.com/issues/36935122][Google Android Issue]] 
+  [[http://www.openwall.com/lists/oss-security/2011/11/10/1][Zerg Rush Email Chain]] 
+  [[https://cwe.mitre.org/data/definitions/416.html][Use After Free Explanation]]  
+  [[file:Security%20for%20Software%20Engineers%201.39.07%20PM.pdf::%25PDF-1.5][Stack Smashing - Helfrich]] 

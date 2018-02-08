@@ -506,35 +506,136 @@
 * DONE Quiz #2
   CLOSED: [2018-02-01 Thu 15:30] DEADLINE: <2018-02-03 Sat>
   [[https://byui.brightspace.com/d2l/common/dialogs/quickLink/quickLink.d2l?ou=377202&type=schedule&rcode=byui_production-1718001][Quiz #2]] 
-* TODO Lab 2
-  DEADLINE: <2018-02-07 Wed>
+* DONE Grade Homework 4
+  CLOSED: [2018-02-05 Mon 20:39] SCHEDULED: <2018-02-05 Mon> DEADLINE: <2018-02-05 Mon>
+* DONE Lab 3
+  CLOSED: [2018-02-08 Thu 08:30] SCHEDULED: <2018-02-06 Tue> DEADLINE: <2018-02-07 Wed>
   [[https://byui.brightspace.com/d2l/common/dialogs/quickLink/quickLink.d2l?ou=377202&type=schedule&rcode=byui_production-1723972][Assignment]]
-* TODO Homework 5 [0/7]
-  DEADLINE: <2018-02-07 Wed>
-** TODO (3) What code is responsible for doing context switches between the user-level threads in a process? What is this code required to do?
+* DONE Homework 5 [8/8]
+  CLOSED: [2018-02-07 Wed 14:52] DEADLINE: <2018-02-07 Wed>
+** DONE (3) What code is responsible for doing context switches between the user-level threads in a process? What is this code required to do?
+   CLOSED: [2018-02-07 Wed 14:51]
+   Operating system, save state and restore state
+** DONE (3) Explain how a multithreaded application may provide better performance than a single-threaded application even on a single-processor system.
+   CLOSED: [2018-02-05 Mon 16:13]
+   When a kernel thread suffers a page fault, another kernel thread can be
+   switched in to use the interleaving time in a useful manner. A
+   single-threaded process, on the other hand, will not be capable of performing
+   useful work when a page fault takes place. Therefore, in scenarios where a
+   program might suffer from frequent page faults or has to wait for other
+   system events, a multi-threaded solution would perform better even on a
+   single-processor system.
+** DONE (2) Which of the following components of program state are shared across threads in a multithreaded process? (There may be more than one.)
+   CLOSED: [2018-02-05 Mon 16:08]
 
-** TODO (3) Explain how a multithreaded application may provide better performance than a single-threaded application even on a single-processor system.
+   A. Register values
+   -B. Heap Memory-
+   -C. Global variables-
+   D. Stack memory
 
-** TODO (2) Which of the following components of program state are shared across threads in a multithreaded process? (There may be more than one.)
+** DONE (3) Discuss three advantages of user-level threads (ULTs) over kernel-level threads (KLTs).
+   CLOSED: [2018-02-05 Mon 16:00]
+   - Thread scheduling does not involved the OS, thus no system calls with the associated user/kernel mode switching is done.
+   - Scheduling may be very application specific.
+   - Faster to create, manage, and destroy.
+   - May run on any OS
 
-   A) Register values	B) Heap Memory C) Global variables D) Stack memory
-
-** TODO (3) Discuss three advantages of user-level threads (ULTs) over kernel-level threads (KLTs).
-
-** TODO (1) What are the three main thread libraries in use today?
-
-** TODO (3) List three threading issues. Briefly explain each of the issues (not how the issue might be solved, jut what is the issue).
-
-** TODO (3) A Solaris thread which is currently running on a CPU may voluntarily give up the CPU to another thread. Which of the following statements is correct:
+** DONE (2) Discuss two disadvantages of user-level threads (ULTs) over kernel-level threads (KLTs).
+   CLOSED: [2018-02-05 Mon 16:04]
+   - Blocks for I/O could block the entire process along with all user-level threads.
+   - Can't take advantage of a multiprocessor.
+** DONE (1) What are the three main thread libraries in use today?
+   CLOSED: [2018-02-05 Mon 15:49]
+   - Pthreads
+   - Java
+   - Windows API
+** DONE (3) List three threading issues. Briefly explain each of the issues (not how the issue might be solved, just what is the issue).
+   CLOSED: [2018-02-07 Wed 14:35]
+   - Thread-Local & Thread-Specific - each thread may need a copy of the data
+   - Thread canceling - terminating a thread before it has completed.
+   - fork() & exec() System Calls - If one thread calls fork, does the new
+     process duplicated all the threads? or is it single threaded?
+** DONE (3) A Solaris thread which is currently running on a CPU may voluntarily give up the CPU to another thread. Which of the following statements is correct:
+   CLOSED: [2018-02-07 Wed 14:38]
 
    1. A Solaris user-level thread (ULT) may yield to another thread of the same priority.
 
+   *
    2. A Solaris user-level thread (ULT) may yield to another thread of the same priority or higher priority.
+   *
 
    3. A Solaris user-level thread (ULT) may yield to another thread of the same priority, a lower priority, or higher priority.
 
    Assume that anytime the priority of a thread in the system might change, the user-level thread scheduler is called to determine which process gets the processor. [Help: you might look at the sched_yield (which is for kernel threads, but might still be helpful) by doing: man 2 sched_yield.]
 
    Explain why you chose the one you did.
+   
+   Because yielding would allow the next in line to go, but not necessarily the
+   next in a lower priority line.
 
+* TODO Weekly Reading [2/3]
+** DONE Threads (4.5 – 4.8, 6.4)
+   CLOSED: [2018-02-07 Wed 14:38] SCHEDULED: <2018-02-05 Mon> DEADLINE: <2018-02-05 Mon>
+** DONE Process Synchronization (5.1 – 5.5)
+   CLOSED: [2018-02-07 Wed 14:43] SCHEDULED: <2018-02-06 Tue> DEADLINE: <2018-02-07 Wed>
+** TODO Process Synchronization (5.6 – 5.7)
+   DEADLINE: <2018-02-09 Fri>
+* TODO Homework 6
+  DEADLINE: <2018-02-14 Wed>
+** TODO (2) What is the meaning of the term busy waiting?
 
+   What else might be done to wait for a condition to change other than busy wait?
+
+** TODO (4) What are the requirements that a solution to the critical-section problem must satisfy? Explain each one briefly.
+
+   State any assumptions made with regards to the requirements.
+
+** TODO (2) What is the difference between binary and counting semaphores?
+
+   #+BEGIN_SRC C++
+
+     const int n=50;
+     int tally; //global variable
+     void total ( )
+     {
+       int count;
+       for (count = 1; count <= n; count++)
+         {
+           tally++;
+         }
+     }
+
+     void main ( )
+     {
+       tally = 0;
+       parbegin (total ( ), total ( ) ) ; //Start two threads in parallel running total( )
+       // and wait for them to complete
+       write (tally) ;
+     }
+   #+END_SRC
+
+   Determine the proper lower bound and upper bound on the final value of the
+   shared variable tally output by this concurrent program running on a
+   uni-processor. Assume a thread can execute at any relative speed and that a
+   value can only be incremented after it has been loaded into a register by a
+   separate machine instruction. Assume also that a load is done before the
+   increment and a store is done after the increment.
+   
+
+   [For most of the credit on this problem, show that you put some thought in to it.]
+
+   Hint: The assembly language instruction stream might be:
+
+   load mem -> reg1
+
+   incr reg1
+
+   store reg1 -> mem
+
+   Suppose that an arbitrary number of these threads are permitted to execute in parallel under the assumptions of part (a). What effect will this modification have on the range of final values of tally?
+
+** TODO (2) Explain why implementing synchronization primitives by disabling interrupts is not appropriate in a single-processor system if the synchronization primitives are to be used in user-level programs. [i.e. User programs disable interrupts when executing synchronization primitives.]
+
+** TODO (2) Servers can be designed to limit the number of open connections. For example, a server may wish to have only N socket connections at any point in time. As soon as N connections are made, the server will not accept another incoming connection until an existing connection is released. Explain how semaphores can be used by a server to limit the number of concurrent connections.
+
+** TODO (2) How does the signal( ) operation associated with monitors differ from the corresponding operation defined for semaphores?

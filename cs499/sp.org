@@ -100,8 +100,8 @@
   When you present, you should add a link to your presentation in the
   appropriate discussion board. Then, you must also upload a link to the
   assignment submission for it.
-* TODO 04 Status Report
-  DEADLINE: <2018-02-03 Sat>
+* DONE 04 Status Report
+  CLOSED: [2018-02-03 Sat 13:27] DEADLINE: <2018-02-03 Sat>
 ** Project Title:
    TensorFlow
 ** Team Members (if applicable):
@@ -137,14 +137,19 @@
    I was the SPED Talk speaker.
 ** 9: Other comments for the instructor:
    None this week.
-* Proposal
-** Contact information (for all team members, if applicable).
-** Abstract
-** Background
-** Description
-** Significance
-** New Computer Science Concepts
-** Interestingness
-** Tasks and Schedule
-** Required Resources with Costs (if applicable)
-
+* TODO 05 Status Report
+  DEADLINE: <2018-02-10 Sat>
+** Project Title:
+   Voice Synthesis
+** Team Members (if applicable):
+   Colton Kopsa & Quade Morrison
+** Overall Status (on-schedule, behind, ahead):
+** Hours: (replace ## with your hours for each item)
+   ## - Number of hours worked since last update
+   ## - Total number of hours worked on the project thus far
+   ## - Number of total hours anticipated at completion
+** Accomplishments:
+** Challenges:
+** Plans / Goals for next week:
+** SPED Talk Insight (Briefly describe an insight or something interesting you learned from the SPED talks this week):
+** 9: Other comments for the instructor:
