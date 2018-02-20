@@ -1,0 +1,84 @@
+
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t
+#+OPTIONS: broken-links:nil c:nil creator:nil d:(not "LOGBOOK") date:t e:t
+#+OPTIONS: email:nil f:t inline:t num:t p:nil pri:nil prop:nil stat:t tags:t
+#+OPTIONS: tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t
+#+TITLE: zergRush : An Android Rootkit - notes
+#+DATE: <2018-02-15 Tue>
+#+AUTHOR: Colton Kopsa
+#+EMAIL: kop14002@byui.edu
+#+LANGUAGE: en
+#+CREATOR: Emacs 25.3.1 (Org mode 9.1.6)
+
+* Use-after-free 
+** What is it
+   - "Referencing memory after it has been freed can cause a program to crash,
+     use unexpected values, or execute code." cite:cwe
+   - "The memory in question is allocated to another pointer validly at some
+     point after it has been freed. The original pointer to the freed memory is
+     used again and points to somewhere within the new allocation. As the data
+     is changed, it corrupts the validly used memory; this induces undefined
+     behavior in the process." cite:cwe
+   - "If the newly allocated data chances to hold a class, in C++ for example,
+     various function pointers may be scattered within the heap data. If one of
+     these function pointers is overwritten with an address to valid shellcode,
+     execution of arbitrary code can be achieved." cite:cwe
+   - Use-after-free can precede a buffer overflow cite:cwe
+*** Simplified Example?
+** How is it being used?
+   - "Exploited by rewriting a /FrameworkCommand/ object making the /runCommand/
+     point to our first ROP gadget." cite:rev
+   - /FrameworkCommand/s are stored on the heap. cite:vuln
+   - /zergRush/ checks the registers r9, r10, and fp to determine if any of them
+     contain a valid address to the heap. cite:rev
+   - The /FrameworkCommand/s are freed. cite:vuln
+   - /zergRush/ keeps the pointer to it, and executes the code there using ROP
+     gadgets, which provides the user root privileges. cite:rev
+
+* ROP Gadgets
+** What is it
+   - Modern operating systems implement countermeasures called data execution
+     prevention (DEP). It marks a memory range as nonexecutable.
+     cite:prandini12_retur_orien_progr
+   - To get around that, hackers use Return Oriented Programming.
+     cite:prandini12_retur_orien_progr
+   - "ROP takes its name from the RETN assembly instruction, the most important
+     one for code executed via a stack-overflow attack because it's responsible
+     for driving the process control out of the attacked process flow."
+     cite:prandini12_retur_orien_progr
+   - "For this property, each instruction sequence ending in the IA32
+     instruction “RETN” is called a /gadget/." cite:prandini12_retur_orien_progr
+   - These /gadgets/ can be chained to execute any program.
+     cite:prandini12_retur_orien_progr
+*** Simplified Example?
+** How is it being used?
+   - /zergRush/ searches through the stack to find necessary ROP gadgets. cite:rev
+   - In /FrameworkListener::dispatchCommand()/, /zergRush/ uses buffer overflow
+     on the data array argument to write over the original return pointer with
+     the start of the ROP gadget chain. cite:issue,vuln,rev
+   - The ROP gadget chain starts executing the arbitrary malicious code on the
+     heap, which provides the user root privileges. cite:rev
+  
+* Vulnerability
+  - Describe vulnerability cite:issue,cve,sec,email
+    - Failed to do bounds checking
+      - Length of command
+      - number of arguments
+  - Code cite:diff 
+
+* Exploit
+  - Describe exploit
+    - Stack based buffer overflow cite:email,sec,issue
+      - What is it?
+      - How can it be exploited?
+      - How is it being exploited in this case?
+    - Use after Free 
+      - What is it?cite:cwe
+      - How can it be exploited?cite:cwe
+      - How is it being exploited in this case?cite:rev 
+* Response
+
+* Conclusion
+
+bibliographystyle:simple
+bibliography:manuscript.bib 

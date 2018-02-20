@@ -137,10 +137,85 @@
    I was the SPED Talk speaker.
 ** 9: Other comments for the instructor:
    None this week.
-* TODO 05 Status Report
-  DEADLINE: <2018-02-10 Sat>
+* DONE 05 Status Report
+  CLOSED: [2018-02-10 Sat 15:47] DEADLINE: <2018-02-10 Sat>
 ** Project Title:
    Voice Synthesis
+** Team Members (if applicable):
+   Colton Kopsa & Quade Morrison
+** Overall Status (on-schedule, behind, ahead):
+   On-schedule
+** Hours: (replace ## with your hours for each item)
+   06 - Number of hours worked since last update
+   20 - Total number of hours worked on the project thus far
+   126 - Number of total hours anticipated at completion
+** Accomplishments:
+   - Researched Voice Synthesis methods
+   - Discovered dataset that has potential for training
+   - Scoped towards phoneme classification
+   - Researched how to pull phonemes out of acoustic sentences
+** Challenges:
+   - Phoneme Extraction
+** Plans / Goals for next week:
+   If I can figure out a way to build a dataset that maps acoustic signals to
+   phonemes then we can train a neural net on it and maybe ease the process of
+   phoneme classification. Learning how to go about doing that is what I'd like
+   to be researching for next week.
+** SPED Talk Insight (Briefly describe an insight or something interesting you learned from the SPED talks this week):
+   The SPED Talk is not yet available, but I'll be sure to comment about both
+   next week.
+** 9: Other comments for the instructor:
+   None this week
+
+* DONE 06 Status Report
+  CLOSED: [2018-02-19 Mon 13:31] SCHEDULED: <2018-02-15 Thu> DEADLINE: <2018-02-17 Sat>
+** Project Title:
+   TensorFlow Voice Synthesis
+** Team Members (if applicable):
+   Colton Kopsa & Quade Morrison
+** Overall Status (on-schedule, behind, ahead):
+   on-schedule
+** Hours: (replace ## with your hours for each item)
+   01 - Number of hours worked since last update 21 - Total number of hours
+   worked on the project thus far 126 - Number of total hours anticipated at
+   completion
+** Accomplishments:
+   - Furthered research on phoneme extraction
+** Challenges:
+   Currently the only thing I've found so far that accomplishes the alignment of
+   audio for phoneme extraction is a Bash script from an online course on voice
+   synthesis. Although it's something, it requires using what seem to be
+   outdated tools.
+** Plans / Goals for next week:
+   - Work with Quade to find the easiest way for phoneme alignment and
+     extraction.
+   - Begin scoping in on approaches for training the neural network for phoneme
+     classification
+** SPED Talk Insight (Briefly describe an insight or something interesting you learned from the SPED talks this week):
+*** Last Week's SPED Talk
+    I had no idea that Google scripts were capable of making API calls and
+    inserting information. It's really cool to see that in practice and I
+    thought it was really cool to that Google allows you to add functionality to
+    their tools in that way.
+*** This Week's SPED Talks
+    Interactive graphics are interesting. I didn't know someone would build up a
+    framework to do it with SQL and PHP. I feel like those are old web
+    technologies that aren't really in style anymore.
+    
+    React is an interesting technology I haven't learned much about. I thought
+    it was interesting the way that he was programatically creating HTML pages.
+    I didn't know that was one of the features that React introduced to web
+    technologies.
+** 9: Other comments for the instructor:
+   I understand that my effort this week wasn't quite up to par with the time I
+   should be dedicating to senior project. I put that we are still on-schedule
+   because I feel like this time can be made up between now and the end of July.
+   I'm planned up to put a more adequate amount of time into senior project this
+   week.
+* TODO 07 Status Report
+  SCHEDULED: <2018-02-20 Tue> DEADLINE: <2018-02-24 Sat>
+** Project Title:
+   TensorFlow
 ** Team Members (if applicable):
    Colton Kopsa & Quade Morrison
 ** Overall Status (on-schedule, behind, ahead):
@@ -153,3 +228,15 @@
 ** Plans / Goals for next week:
 ** SPED Talk Insight (Briefly describe an insight or something interesting you learned from the SPED talks this week):
 ** 9: Other comments for the instructor:
+* Speech Synthesis
+  - Context is something that needs to be stored on each diphone. Metadata for
+    each of the diphones essentially. Context is also something that is provided
+    through RNNs. It would be interesting to research if that can be helpful here.
+** Features
+   - dBs
+   - frequency
+   - spectogram
+   - cepstogram
+** Ideas
+   So, I found the TIMIT dataset that is pretty well done. It has audio and then
+   for each thing of audio it has the phonemes

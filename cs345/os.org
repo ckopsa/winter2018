@@ -573,25 +573,45 @@
    Because yielding would allow the next in line to go, but not necessarily the
    next in a lower priority line.
 
-* TODO Weekly Reading [2/3]
+* DONE Weekly Reading [3/3]
+  CLOSED: [2018-02-10 Sat 15:10]
 ** DONE Threads (4.5 – 4.8, 6.4)
    CLOSED: [2018-02-07 Wed 14:38] SCHEDULED: <2018-02-05 Mon> DEADLINE: <2018-02-05 Mon>
 ** DONE Process Synchronization (5.1 – 5.5)
    CLOSED: [2018-02-07 Wed 14:43] SCHEDULED: <2018-02-06 Tue> DEADLINE: <2018-02-07 Wed>
-** TODO Process Synchronization (5.6 – 5.7)
-   DEADLINE: <2018-02-09 Fri>
-* TODO Homework 6
-  DEADLINE: <2018-02-14 Wed>
-** TODO (2) What is the meaning of the term busy waiting?
+** DONE Process Synchronization (5.6 – 5.7)
+   CLOSED: [2018-02-10 Sat 15:09] DEADLINE: <2018-02-09 Fri>
+* DONE Homework 6 [7/7]
+  CLOSED: [2018-02-14 Wed 11:57] SCHEDULED: <2018-02-13 Tue> DEADLINE: <2018-02-14 Wed>
+** DONE (2) What is the meaning of the term busy waiting?
+   CLOSED: [2018-02-12 Mon 15:29]
+   Using up CPU cycles to wait for something.
+*** What else might be done to wait for a condition to change other than busy wait?
+    Blocking 
+** DONE (4) What are the requirements that a solution to the critical-section problem must satisfy? Explain each one briefly.
+   CLOSED: [2018-02-12 Mon 15:36]
 
-   What else might be done to wait for a condition to change other than busy wait?
+   1. Mutual exclusion. If process P i is executing in its critical section,
+      then no other processes can be executing in their critical sections.
 
-** TODO (4) What are the requirements that a solution to the critical-section problem must satisfy? Explain each one briefly.
+   2. Progress. If no process is executing in its critical section and some
+      processes wish to enter their critical sections, then only those processes
+      that are not executing in their remainder sections can participate in
+      deciding which will enter its critical section next, and this selection
+      cannot be postponed indefinitely.
 
-   State any assumptions made with regards to the requirements.
+   3. Bounded waiting. There exists a bound, or limit, on the number of times
+      that other processes are allowed to enter their critical sections after a
+      process has made a request to enter its critical section and before that
+      request is granted.
 
-** TODO (2) What is the difference between binary and counting semaphores?
-
+** DONE (2) What is the difference between binary and counting semaphores?
+   CLOSED: [2018-02-12 Mon 15:41]
+   The counting semaphore can range over an unrestricted domain, but the binary
+   semaphore is can only range between 0 and 1.
+   
+** DONE (2) Other Question
+   CLOSED: [2018-02-14 Wed 15:14]
    #+BEGIN_SRC C++
 
      const int n=50;
@@ -626,16 +646,261 @@
 
    Hint: The assembly language instruction stream might be:
 
-   load mem -> reg1
+   #+BEGIN_EXAMPLE
+     load mem -> reg1 
+     incr reg1
+     store reg1 -> mem
+   #+END_EXAMPLE
 
-   incr reg1
+   Suppose that an arbitrary number of these threads are permitted to execute in
+   parallel under the assumptions of part (a). What effect will this
+   modification have on the range of final values of tally?
 
-   store reg1 -> mem
+   a. 2 \geq x \geq 50
+   b. n \geq x \geq 50
+** DONE (2) Explain why implementing synchronization primitives by disabling interrupts is not appropriate in a single-processor system if the synchronization primitives are to be used in user-level programs. [i.e. User programs disable interrupts when executing synchronization primitives.]
+   CLOSED: [2018-02-14 Wed 11:55]
+   If a user-level program is given the ability to disable interrupts, then it
+   can disable the timer interrupt and prevent context switching from taking
+   place, thereby allowing it to use the processor without letting other
+   processes to execute.
+** DONE (2) Servers can be designed to limit the number of open connections. For example, a server may wish to have only N socket connections at any point in time. As soon as N connections are made, the server will not accept another incoming connection until an existing connection is released. Explain how semaphores can be used by a server to limit the number of concurrent connections.
+   CLOSED: [2018-02-14 Wed 11:55]
+   A semaphore is initialized to the number of allowable open socket
+   connections. When a connection is accepted, the acquire() method is called;
+   when a connection is released, the release() method is called. If the system
+   reaches the number of allowable socket connections, subsequent calls to
+   acquire() will block until an existing connection is terminated and the
+   release method is invoked.
+** DONE (2) How does the signal() operation associated with monitors differ from the corresponding operation defined for semaphores?
+   CLOSED: [2018-02-14 Wed 14:19]
+   Signal on a monitor does nothing if there is no one waiting; however, with
+   the semaphore we still increment the counter.
+* DONE Feedback on Lab 3 - T1
+  CLOSED: [2018-02-12 Mon 16:37] SCHEDULED: <2018-02-12 Mon> DEADLINE: <2018-02-12 Mon>
+  
+* DONE Lab 3 - T2 Submission
+  CLOSED: [2018-02-13 Tue 08:41] SCHEDULED: <2018-02-13 Tue> DEADLINE: <2018-02-13 Tue>
+* DONE Lab 3 - Grade Peers
+  CLOSED: [2018-02-13 Tue 08:41] SCHEDULED: <2018-02-13 Tue> DEADLINE: <2018-02-13 Tue>
+* TODO Weekly Reading [3/3]
+** DONE Process Synchronization (5.8 – 5.9)
+   CLOSED: [2018-02-12 Mon 15:27] SCHEDULED: <2018-02-12 Mon> DEADLINE: <2018-02-12 Mon>
+** DONE Alternative Approaches (5.10, Lab 5 handout,[[http://arstechnica.com/gadgets/2011/08/ibms-new-transactional-memory-make-or-break-time-for-multithreaded-revolution/][ IBM's New Transactional Memory]] 
+   CLOSED: [2018-02-14 Wed 12:11] SCHEDULED: <2018-02-13 Tue> DEADLINE: <2018-02-14 Wed>
+** DONE Deadlocks (5.11, 5.12)
+   CLOSED: [2018-02-16 Fri 14:19] SCHEDULED: <2018-02-15 Thu> DEADLINE: <2018-02-16 Fri>
+* TODO Homework 7 [2/5]
+  SCHEDULED: <2018-02-20 Tue> DEADLINE: <2018-02-21 Wed>
+** DONE (2) What are the four conditions that create deadlock? Briefly explain each one.
+   CLOSED: [2018-02-16 Fri 14:22]
+   - Mutual exclusion. At least one resource must be held in a nonsharable mode;
+     that is, only one process at a time can use the resource. If another
+     process requests that resource, the requesting process must be delayed
+     until the resource has been released.
+   - Hold and wait. A process must be holding at least one resource and waiting
+     to acquire additional resources that are currently being held by other
+     processes.
+   - No preemption. Resources cannot be preempted; that is, a resource can be
+     released only voluntarily by the process holding it, after that process has
+     completed its task.
+   - Circular wait. A set {P 0 , P 1 , ..., P n } of waiting processes must
+     exist such that P 0 is waiting for a resource held by P 1 , P 1 is waiting
+     for a resource held by P 2 , ..., P n−1 is waiting for a resource held by P
+     n , and P n is waiting for a resource held by P 0 .
+** DONE (2) What are two ways to preempt resources in a system to prevent deadlocks by eliminating the “no preemption” condition necessary for deadlocks.
+   CLOSED: [2018-02-16 Fri 14:27]
+   
+   - Deadlock Avoidance
+   - Deadlock Prevention
+** TODO (3) [[file:3.jpeg][file:~/classes/cs345/3.jpeg]] 
+   A spooling system (figure above) consists of an input process I, a processing
+   process P, and an output process O connected by two buffers. The processes
+   exchange data in blocks of equal size. These blocks are buffered on a disk
+   using a floating boundary between the input and the output buffers depending
+   on the speed of the processes. The communication primitives used ensure that
+   the following resource constraint is satisfied:
 
-   Suppose that an arbitrary number of these threads are permitted to execute in parallel under the assumptions of part (a). What effect will this modification have on the range of final values of tally?
+   i + o < max
 
-** TODO (2) Explain why implementing synchronization primitives by disabling interrupts is not appropriate in a single-processor system if the synchronization primitives are to be used in user-level programs. [i.e. User programs disable interrupts when executing synchronization primitives.]
+   where:
+   - max = maximum number of blocks on disk
+   - i = number of blocks used on the disk for the input buffer
+   - o = number of blocks used on the disk for the output buffer
 
-** TODO (2) Servers can be designed to limit the number of open connections. For example, a server may wish to have only N socket connections at any point in time. As soon as N connections are made, the server will not accept another incoming connection until an existing connection is released. Explain how semaphores can be used by a server to limit the number of concurrent connections.
+   The following is known about the processes:
 
-** TODO (2) How does the signal( ) operation associated with monitors differ from the corresponding operation defined for semaphores?
+   - As long as the environment supplies data, process I will eventually input
+     it to the input buffer on the disk (provided disk space becomes available).
+   - As long as there is an item(s) in the input buffer on the disk, process P
+     will eventually consume it and output a finite amount of data to the output
+     buffer on the disk for each block input (provided disk space becomes
+     available).
+   - As long as there is an item in the output buffer, process O will eventually
+     consume it.
+
+   Show that this system can be deadlocked.
+   
+** TODO (2) Suggest an additional resource constraint that will prevent the deadlock in problem 3; but still permit the boundary between input and output buffers to vary in accordance with the present needs of the processes.
+** TODO (3) Three processes share four instances of an identical resource. The resource instances can only be reserved and released one at a time. Each process needs a maximum of two units. Show that a deadlock cannot occur.
+   
+* TODO Lab 4
+  SCHEDULED: <2018-02-20 Tue> DEADLINE: <2018-02-21 Wed>
+  #+BEGIN_SRC cpp :results output
+    #include <iostream>
+    #include <pthread.h>
+    using namespace std;
+
+    #define M 5  // number of rows in matrix A
+    #define K 6  // number of rows in matrix B -- number of columns in matrix A
+    #define N 8  // number of columns in matrix B
+    #define NUM_THREADS M*N
+
+    // [rows][columns]
+    int A [M][K] =
+      {
+        {1,4,3,7,9,1},
+        {2,5,4,8,6,3},
+        {3,6,5,8,2,3},
+        {3,8,8,1,4,1},
+        {1,5,4,5,7,9}
+      }
+      ;
+    int B [K][N] =
+      {
+        {1,5,6,5,7,9,8,2},
+        {1,2,3,5,5,6,7,8},
+        {3,5,9,7,3,1,4,1},
+        {8,3,1,2,6,5,2,4},
+        {3,8,8,1,4, 1,3,3},
+        {8,7,6,5,4,3,2,1}
+      };
+    int C [M][N];  // this is where the answer will be placed
+
+    /* structure for passing data to threads */
+    struct ThreadData
+    {
+      int i; /* row */
+      int j; /* column */
+    };
+
+    void *print_message_function( void *ptr );
+
+    int main()
+    {
+      pthread_t threads[NUM_THREADS];
+
+      /* We have to create M * N worker threads */
+      int threadCount = 0;
+      for (int i = 0; i < M; i++)
+        for (int j = 0; j < N; j++ )
+        {
+          ThreadData* tData = new ThreadData;
+          tData->i = i;
+          tData->j = j;
+          /* Now create the thread passing it tData as
+             a parameter */
+          pthread_create( &threads[threadCount++], NULL, print_message_function, (void*) tData);
+        }
+
+      for (int i = 0; i < NUM_THREADS; i++)
+        pthread_join(threads[i], NULL);
+
+      for(int i = 0; i < M; i++)
+      {
+        for(int j = 0; j < N; j++)
+        {
+          cout << C[i][j] << ", ";
+        }
+        printf("\n");
+        cout << endl;
+      }
+
+      return 0;
+    }
+
+    void *print_message_function( void *ptr )
+    {
+      ThreadData *data;
+      data = (ThreadData *) ptr;
+      int i, sum = 0;
+      for(i = 0; i < K; i++)
+      {
+        sum += A[data->i][i] * B[i][data->j];
+      }
+      C[data->i][data->j] = sum;
+      pthread_exit(0);
+    }
+  #+END_SRC
+
+  #+RESULTS:
+  : 105, 128, 130, 74, 118, 83, 91, 93, 
+  : 
+  : 125, 133, 137, 100, 135, 107, 107, 101, 
+  : 
+  : 118, 113, 123, 113, 134, 119, 114, 100, 
+  : 
+  : 63, 113, 153, 122, 111, 95, 128, 95, 
+  : 
+  : 151, 169, 172, 120, 138, 102, 108, 96,
+  
+  #+BEGIN_SRC python :results output
+    print "Howdy"
+  #+END_SRC
+
+  #+RESULTS:
+  : Howdy
+* TODO Weekly Reading [0/2]
+** TODO Main memory (7.1 – 7.3)
+   SCHEDULED: <2018-02-20 Tue> DEADLINE: <2018-02-21 Wed>
+** TODO Main memory (7.4 – 7.5)
+   SCHEDULED: <2018-02-23 Fri> DEADLINE: <2018-02-23 Fri>
+* TODO HW #8 CS 345 Operating Systems Chapter 7 [0/9]
+** TODO (2) What is the difference between internal and external fragmentation?
+
+** TODO (3) When might binding of logical addresses to physical addresses be done?
+
+*** What does ‘absolute code’ and ‘relocatable code’ have to do with the binding of addresses?
+
+** TODO (2) What does MMU stand for and what does it do?
+
+** TODO (3) Discuss the pros and cons of worst fit as compared to first fit and best fit.
+
+** TODO (2) What elements are typically found in a page table entry? Briefly define each element. (Refer to section 7.5.3 for this question.)
+
+** TODO (4.5) Given five memory partitions of 100 KB, 500 KB, 200 KB, 300 KB and 600 KB (in order), how would each of the first-fit, best-fit, and worst-fit algorithms place processes of 212 KB, 417 KB, 112 KB and 426 KB (in order)? Assume that the free space left when a block is allocated may be allocated for a future request. Which algorithm makes the most efficient use of memory?
+
+| First-fit | Best-fit | Worst-fit |
+|-----------+----------+-----------|
+| 100 KB    | 100 KB   | 100 KB    |
+| 500 KB    | 500 KB   | 500 KB    |
+| 200 KB    | 200 KB   | 200 KB    |
+| 300 KB    | 300 KB   | 300 KB    |
+| 600 KB    | 600 KB   | 600 KB    |
+                         
+** TODO (2) What is the purpose of paging the page tables?
+** TODO (4.5) Consider a system with memory mapping done on a page basis and using a single-level page table. Assume that the necessary page table is always in memory.
+*** If a memory reference takes 200 ns, how long does it take to reference (or access) a memory location using the page table (a paged memory reference)?
+*** Now we add an MMU that imposes an overhead (additional time) of 20 ns on each memory reference if it is a hit or a miss. If we assume that 85% of all memory references hit in the MMU TLB, what is the effective memory access time (EMAT)? [A memory reference to access the page table on a miss does not incur the time to access the TLB.]
+*** Generally speaking, what is the relationship between TLB hit rate and EMAT?
+
+** TODO (3) Suppose the page table for the process currently executing on the processor looks like the following. All numbers are decimal, everything is numbered starting from zero, and all addresses are memory byte addresses. The page size is 1024 bytes.
+
+|           Virtual page number | Valid bit | Page frame number              |
+|-------------------------------+-----------+--------------------------------|
+| (virtual address 0 - 1023)  0 |         1 | 4                              |
+|                             1 |         1 | 7                              |
+|                             2 |         0 | -                              |
+|                             3 |         1 | 2                              |
+|                             4 |         0 | -                              |
+|                             5 |         1 | (physical address 0 - 1023)  0 |
+
+*** What physical address, if any would each of the following virtual addresses correspond to? (Do not try to handle page faults, if any, just indicate that there would be a page fault.)
+
+**** 1052
+
+**** 2221
+
+**** TODO 5499
+* TODO Test 2
+  SCHEDULED: <2018-02-22 Thu> DEADLINE: <2018-02-24 Sat>

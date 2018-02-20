@@ -2,7 +2,7 @@
 #+OPTIONS: broken-links:nil c:nil creator:nil d:(not "LOGBOOK") date:t e:t
 #+OPTIONS: email:nil f:t inline:t num:t p:nil pri:nil prop:nil stat:t tags:t
 #+OPTIONS: tasks:t tex:t timestamp:t title:t toc:t todo:t |:t
-#+TITLE: sec
+#+TITLE: Computer Security
 #+DATE: <2018-01-20 Sat>
 #+AUTHOR: Colton Kopsa
 #+EMAIL: Aghbac@Aghbac.local
@@ -37,9 +37,9 @@
   - Strike at will
   - Play dirty
 * Direct Script Injection
-- Scripting Functionality
-- Malicious Code
-- Victim Opens the Document
+  - Scripting Functionality
+  - Malicious Code
+  - Victim Opens the Document
 * Reflected Script Injection
   - Create the Payload
   - Insert Payload Onto Host
@@ -96,10 +96,10 @@
 **** DONE Notes
      CLOSED: [2018-01-23 Tue 11:14]
 
-    S. Brin & L. Page. "The Anatomy of a Large-Scale Hypertextual Web Search
-    Engine", WWW7 Proceedings of the seventh international conference on World
-    Wide Web 7 archive, pp 107-117 [Online] Available:
-    https://doi.org/10.1016/S0169-7552(98)00110-X
+     S. Brin & L. Page. "The Anatomy of a Large-Scale Hypertextual Web Search
+     Engine", WWW7 Proceedings of the seventh international conference on World
+     Wide Web 7 archive, pp 107-117 [Online] Available:
+     https://doi.org/10.1016/S0169-7552(98)00110-X
 ** DONE Quiz
    CLOSED: [2018-01-23 Tue 11:40]
    As with last week, don't forget to take the quiz. The highest score will be
@@ -176,9 +176,191 @@
   CLOSED: [2018-02-08 Thu 10:16] SCHEDULED: <2018-02-08 Thu> DEADLINE: <2018-02-10 Sat>
   [[https://content.byui.edu/file/2390954c-eadb-4592-aa96-5a29275f9404/1/Ponder/470.05.ResearchSources.html][Assignment]]
   
-  [[https://github.com/revolutionary/zergRush/blob/master/zergRush.c][Zerg Rush]] 
-  [[https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3874][CVE ID]] 
-  [[https://issuetracker.google.com/issues/36935122][Google Android Issue]] 
-  [[http://www.openwall.com/lists/oss-security/2011/11/10/1][Zerg Rush Email Chain]] 
-  [[https://cwe.mitre.org/data/definitions/416.html][Use After Free Explanation]]  
-  [[file:Security%20for%20Software%20Engineers%201.39.07%20PM.pdf::%25PDF-1.5][Stack Smashing - Helfrich]] 
+  - [[https://github.com/revolutionary/zergRush/blob/master/zergRush.c][Zerg Rush]] 
+  - [[https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3874][CVE ID]] 
+  - [[https://issuetracker.google.com/issues/36935122][Google Android Issue]] 
+  - [[http://www.openwall.com/lists/oss-security/2011/11/10/1][Zerg Rush Email Chain]] 
+  - [[https://cwe.mitre.org/data/definitions/416.html][Use After Free Explanation]]  
+  - [[file:Security%20for%20Software%20Engineers%201.39.07%20PM.pdf::%25PDF-1.5][Stack Smashing - Helfrich]] 
+* DONE Prepare 06 : Reading and Quiz
+  CLOSED: [2018-02-13 Tue 08:42] SCHEDULED: <2018-02-13 Tue> DEADLINE: <2018-02-13 Tue>
+  The reading for this week will include one chapter from the textbook and three
+  additional articles.
+
+** TODO Chapter 06: Memory Injection
+   The vast majority of all malware spreads by exploiting memory injection
+   vulnerabilities. In the early days of software development, it was common for
+   software engineers to be ignorant of these vulnerabilities and accept that
+   they inevitably exist in the code. Those days are past. Now it is not
+   uncommon for someone to lose their job because they introduced a memory
+   injection vulnerability. Therefore, every software engineer has to be very
+   good at identifying and fixing these vulnerabilities
+
+** TODO The Rising Threat of Vulnerabilities Due to Integer Errors
+   More detail into overflow and underflow vulnerabilities.
+
+   D. Ahmad, "The Rising Threat of Vulnerabilities Due to Integer Errors", IEEE
+   Security and Privacy archive, Volume 1 Issue 4, July 2003, pp 77-82 [Online]
+   Available: https://doi.org/10.1109/MSECP.2003.1219077
+
+** TODO Smashing C++ VPTRS
+   This article goes into a great deal of detail as to how classes are
+   implemented in C++. This degree of detail is required in order to understand
+   and exploit a vulnerability.
+
+   Rix, "Smashing C++ VPTRS", Phrack, 1, May. 2000, Volume 10, Issue 56 [Online]
+   Available: http://phrack.org/issues/56/8.html#article
+
+** TODO Smashing The Stack For Fun And Profit
+   Another must-read for all computer science or software engineering majors.
+   This can get very dense. Focus on the part before the Shell Code section.
+
+   Aleph One. "Smashing The Stack For Fun And Profit", Phrack, 08, Nov. 1996,
+   Volume 7, Issue 49
+* DONE Prove 06 : Rough Draft
+  CLOSED: [2018-02-19 Mon 10:04] SCHEDULED: <2018-02-13 Tue> DEADLINE: <2018-02-17 Sat>
+  Write the rough draft of your research paper. A couple things to pay special attention to:
+
+  - Thesis: The main point or thesis of your paper should be clearly stated.
+    This thesis should imply or directly state what exactly you are trying to
+    teach the reader.
+  - Development: How are you going to organize the information you have learned
+    from the articles? Pay particular attention to how ideas are developed. Is
+    there an obvious flow where each paragraph leads into the next?
+  - Completeness: Is the thesis completely covered? Did this paper accomplish
+    what it set out to do as stated in the thesis?
+  - Citations: Make sure that every source is cited. If this were a master's
+    thesis or a PhD. dissertation, then every single sentence will have at least
+    one citation. Clearly we do not need to be that rigorous, but it should be
+    close!
+  - Tables, Graphs, and Figures: If you need to add tables, graphs, and/or
+    figures to your paper to make it more understandable, a draft of these
+    should be completed this week. You probably do not want to copy-paste a
+    graph or figure directly from your source (if you do, make sure to cite
+    it!). Instead, you will probably want to adapt it to your own paper so it
+    fits into the flow better. In other words, a table, graph, or figure added
+    to your paper should fit in with the text of the paper so it feels like an
+    extension of your writing rather than something slapped together.
+
+  There is no formal submission this week. That being said, you should have a
+  rough draft of your paper completed by the end of the week.
+* TODO Ponder 06 : Vulnerabilities & Exploits
+  SCHEDULED: <2018-02-13 Tue> DEADLINE: <2018-02-24 Sat>
+  [[https://content.byui.edu/file/2390954c-eadb-4592-aa96-5a29275f9404/1/Ponder/470.06.Lab.html][Assignment]]
+  
+* TODO Prepare 08 : Reading and Quiz
+  SCHEDULED: <2018-02-19 Mon> DEADLINE: <2018-02-20 Tue>
+  - [ ] Chapter 08 : Threat Mitigation
+
+  As with last week, don't forget to take the quiz. The highest score will be
+  the recorded score.
+
+* TODO Ponder 07 : Threat Model
+  SCHEDULED: <2018-02-22 Thu> DEADLINE: <2018-02-24 Sat>
+  The purpose of this assignment is to demonstrate proficiency in all the steps
+  in threat modeling. This is a group assignment; you will work with same group
+  you use for the problem sets for online students. In order to get full credit
+  for this assignment, you need to demonstrate proficiency in each of the steps.
+
+  Threat model the following program available on Linux:
+  /home/cs470/week07/bed.cpp
+
+  The file is also available here: bed.html. Assignment
+
+  You will work with the same small group you use to work through the problem
+  sets. Though this is a group project, grades will be awarded individually.
+  This means that there must be "abundant evidence" that everyone on the team
+  has participated in all aspects of the project.
+
+  There are three components:
+
+  - Asset List: What assets are to be protected by the program?
+  - Data Flow Diagram: You will need to include every instance of data
+    communication as well as all processes. It might be necessary to drill down
+    two or three levels depending on how much detail you put on each level.
+  - Threat List: Come up with a list of threats. Additionally, create one
+    "complete threat" for each member of the team. A "complete threat" includes:
+** Component Description
+   - Asset Completely and concisely describe what the threat is about.
+   - Threat Category Include all parts of the McCumber model: the protection
+     mechanism, the state, and the S.T.R.I.D.E. component.
+   - Risk Compute the risk (think D.R.E.A.D.). Also include a brief justification
+     for your values.
+   - Mitigation Some idea how the threat is to be mitigated.
+   - Comments Anything else that may be relevant.
+
+   A couple pointers:
+
+   - The best groups meet a couple times to work on this project together.
+   - Double-check each other's work. This helps ensure that you understand the
+     concepts as well as helping your friends get the highest possible score.
+   - Clearly annotate who did what. If the grader can't tell you worked on part
+     of the problem, you probably will not get points!
+   - If you draw your DFD on a white board, either transcribe it to paper or take
+     a picture.
+
+   Please submit all the group's work as a single PDF document. This is done by
+   e-mailing the professor directly. You might need to take a picture of your DFD
+   to do this. The grading is:
+
+* TODO 5. Reviewing a Paper
+  SCHEDULED: <2018-02-22 Thu> DEADLINE: <2018-02-24 Sat>
+  [[https://content.byui.edu/file/2390954c-eadb-4592-aa96-5a29275f9404/1/Ponder/470.07.ResearchReview.html][Assignment]]
+  Once you have selected a topic, reply to the post with the subject "Review."
+  Since there can be only one review per paper, you need to make sure that a
+  "Review" reply does not currently exist on the post. You can "claim" a post at
+  any time, even if you will not get around to reviewing the paper until later in
+  the week.
+
+  Your review should focus on the following points:
+
+  Sources: Are the sources Primary or Secondary? Is there enough information
+  in the summaries to tell? Summaries: Were the main points pulled out of the
+  sources and described in the summaries? Completeness: Does the paper cover
+  all the angles of the topic as reported in the sources? Writing: Can you
+  easily follow the author's thoughts?
+
+  Your review should cover all these points. Give high-level feedback (ex: Your
+  second sources is preliminary, you need to find a better source), do not
+  re-write the paper. Grades will be awarded according to how well the defects in
+  the final paper were discovered and described by the reviewer.
+* TODO Prove 08 : Midterm Part I
+  SCHEDULED: <2018-02-24 Sat> DEADLINE: <2018-02-27 Tue>
+
+  A security-aware software engineer needs to not only write secure code, he
+  also needs to be conversant in the fundamental principles of the discipline.
+  In other words, it is necessary to know the definition of key terms, explain
+  important principles, and recite key facts. This may seem counter-intuitive in
+  the modern age of information ubiquity. However, can you really be an
+  effective programmer if you are constantly looking up the syntax of language
+  constructs? Security is much the same way. Some facts need to be on the "tip
+  of the tongue."
+
+  The first part of the midterm will focus on the facts and comprehension part of
+  Computer Security. You will be asked to list, define, and explain many of the
+  fundamental principles of the class. The questions for the midterm will be drawn
+  from the questions at the end of each chapter in the reading. Most of these
+  questions we have seen before in one form or another in the preparation quizzes
+  or the problem sets.
+
+  You may take the midterm any time before the due-date. Once you begin taking the
+  test, you will have 30 minutes to complete it. In order to receive full credit,
+  each essay question needs to be about 100 words to fully explain the
+  answer/solution. While this may not seem like a lot, you will need to go quickly
+  to finish on time.
+
+  This test is closed-book. You may not look on the internet, your notes, or the
+  textbook for any of the answers. That being said, we will rely on the honor
+  system to enforce this.
+
+  Tips for maximizing your score on the test:
+
+  Review all the preparation quizzes and problems sets for Unit 0 Introduction
+  to Computer Security, Unit 1 Attack Vectors, and Unit 2 Code Hardening. Make
+  sure you fully understand the answer for each. Try to identify the most
+  likely items that will be on the test. For each of these, practice typing
+  your answer to each question many times. The more times you practice each
+  response, the more likely that you will have time left over to work through
+  the unexpected questions. Do not panic when taking the test. Make sure you
+  answer the questions you know first. Come back later for the ones that
+  caught you off guard.
