@@ -2,6 +2,11 @@
 #+OPTIONS: broken-links:nil c:nil creator:nil d:(not "LOGBOOK") date:t e:t
 #+OPTIONS: email:nil f:t inline:t num:t p:nil pri:nil prop:nil stat:t tags:t
 #+OPTIONS: tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t
+#+LATEX_HEADER: \usepackage[backend=biber,style=ieee,citestyle=numeric-comp]{biblatex}
+#+LATEX_HEADER: \usepackage{palatino}
+#+LATEX_HEADER: \usepackage{url}
+#+LATEX_HEADER: \addbibresource{manuscript.bib}
+#+LaTeX_CLASS: article
 #+TITLE: zergRush : An Android Rootkit
 #+DATE: <2018-02-15 Tue>
 #+AUTHOR: Colton Kopsa
@@ -9,26 +14,26 @@
 #+LANGUAGE: en
 #+CREATOR: Emacs 25.3.1 (Org mode 9.1.6)
 
-Within the field of malware exists the desire to obtain root, originally known
-as /rootkits/. cite:sec With root access to a system, the user can do virtually
-anything they want in the system. cite:sec This malware has found use in the
-Android operating system, allowing users to gain more freedom with there devices
-at the cost of security. The /zergRush/ malware was able to provide root access
-for all Android phones using version 2.2 (Frozen Yogurt) and 2.3 (Gingerbread)
-by means of the buffer overflow and use-after-free vulnerabilities. cite:issue
+Within the field of malware exists the desire to obtain root privileges to a
+system, and the malware built to accomplish this was originally known as
+/rootkits/. cite:sec With root access, the user can do virtually anything they
+want in a system. cite:sec This malware has found use in the Android operating
+system, allowing users to gain more freedom with there devices at the cost of
+security. The /zergRush/ malware was able to provide root access to all Android
+phones using version 2.2 (Frozen Yogurt) and 2.3 (Gingerbread) by means of the
+buffer overflow and use-after-free vulnerabilities. cite:issue
 
 The buffer overflow vulnerability used by /zergRush/ was found in the
 /FrameworkListener::dispatchCommand()/ from the /libsysutils/ library.
-cite:issue. This function allowed the user to input commands that the this
-function would dispatch for execution. cite:vuln However, when copying a string
-from the user's entered command into a local c-string, the halting condition was
-based not on the size of the local c-string, rather it halted when a '0' was
-encountered, in other words it was expecting a 0-terminating c-string. cite:vuln
-/zergRush/ was able to exploit this by overflowing the buffer and using Return
-Oriented Programming to point to arbitrary code stored that was stored on the
-heap. cite:rev,cve,email
+cite:issue. This function allowed the user to input commands that would then be
+dispatched for execution. cite:vuln However, when copying a string from a
+command entered by the user into a local c-string, the halting condition
+required a 0-terminating c-string, but did not perform proper bounds checking on
+the input provided. cite:vuln /zergRush/ was able to exploit this function by
+overflowing the buffer and using Return Oriented Programming to point to
+arbitrary code that was stored on the heap. cite:rev,cve,email
 
-* ROP Gadgets
+* Return Oriented Programming
   Modern operating systems implement countermeasures called data execution
   prevention (DEP) to prevent hackers from adding arbitrary code to a stack
   through user input. cite:prandini12_retur_orien_progr It does this by marking
@@ -40,11 +45,12 @@ heap. cite:rev,cve,email
   process control out of the attacked process flow."
   cite:prandini12_retur_orien_progr "For this property, each instruction
   sequence ending in the IA32 instruction “RETN” is called a /gadget/."
-  cite:prandini12_retur_orien_progr By chaining these ROP gadgets together, its
-  possible to execute virtually any program.
+  cite:prandini12_retur_orien_progr By chaining these ROP gadgets together, it
+  is possible to execute virtually any program.
 ** How it was used in /zergRush/
-   /zergRush/ searches through the stack to find necessary ROP gadgets. cite:rev
-   In /FrameworkListener::dispatchCommand()/, /zergRush/ uses buffer overflow on
+   /zergRush/ searches through the stack to find the necessary ROP gadgets to
+   take control of the program execution. cite:rev In
+   /FrameworkListener::dispatchCommand()/, /zergRush/ uses buffer overflow on
    the data array argument to write over the original return pointer with the
    start of the ROP gadget chain. cite:issue,vuln,rev The ROP gadget chain sends
    execution of the program to the heap where the arbitrary malicious code is
@@ -73,11 +79,11 @@ heap. cite:rev,cve,email
   pointer to the freed memory is used again and points to somewhere within the
   new allocation. As the data is changed, it corrupts the validly used memory;
   this induces undefined behavior in the process." cite:cwe In the event that a
-  class is stored on the heap, its function pointers are also be st:ored on the
+  class is stored on the heap, its function pointers are also stored on the
   heap. "If one of these function pointers is overwritten with an address to
-  valid shellcode, execution of arbitrary code can be achieved." cite:cwe In the
-  case of /zergRush/ it's important to note that use-after-free can precede a
-  buffer overflow. cite:cwe
+  valid shellcode, execution of arbitrary code can be achieved." cite:cwe It is
+  important to note that a use-after-free vulnerability can precede a buffer
+  overflow vulnerability, like in the case of /zergRush/. cite:cwe
   
    #+caption: Example of /free-after-use/ vulnerability
    #+BEGIN_SRC C
@@ -98,33 +104,37 @@ heap. cite:rev,cve,email
    #+END_SRC
    cite:cwe 
 ** How it was used in /zergRush/
-   Within the source code for /zergRush/ exists this comment: "Exploited by
+   Within the source code of /zergRush/ exists this comment: "Exploited by
    rewriting a /FrameworkCommand/ object making the /runCommand/ point to our
    first ROP gadget." cite:rev Android's /FrameworkCommands/ are stored on the
    heap. cite:vuln Because this data is stored on the heap, /zergRush/ checks
    the registers r9, r10, and fp to determine if any of them contain a valid
    address to the heap. cite:rev When the /FrameworkCommands/ are freed,
    /zergRush/ keeps the pointer to its malicious /FrameworkCommand/, and when
-   the ROP gadgets send the execution of the program to the heap it provides the
-   user root privileges. cite:rev,vuln
+   the ROP gadgets send the execution of the program to the heap the code stored
+   there is executed and provides root privileges. cite:rev,vuln
    
 * Response to /zergRush/
-  Because the entirety of /zergRush's/ exploit was founded on their ability to
-  overflow the buffer, Google's response was targeted at that vulnerability.
-  cite:diff A bounds-check was added to the copying of the user's input to make
-  sure that their input didn't cause an overflow. cite:diff If in the case that
-  an overflow happened, the program would notify the user that they had exceeded
-  the length of the buffer. cite:diff Though the use-after-free vulnerability
-  remained, the ability to overwrite the return pointer to access the arbitrary
-  code on the heap was removed making the exploit ineffective. cite:diff
+  Because the entirety of /zergRush's/ exploit was founded on its ability to
+  exploit a buffer overflow vulnerability, Google's response was targeted at
+  this. cite:diff A bounds-check was added to the copying of the user's input to
+  make sure that their input did not cause a buffer overflow. cite:diff In the
+  case that an overflow happened, the program would notify the user that they
+  had exceeded the length of the buffer and cease execution. cite:diff Though
+  the use-after-free vulnerability remained, the ability to overwrite the return
+  pointer to access the arbitrary code on the heap was removed making the
+  exploit ineffective. cite:diff
   
-  /zergRush/ was successful at exploiting Android. Its ability to overwrite the
-  stack and modify the return pointer with ROP gadgets allowed it to gain
-  control. Its exploitation of the use-after-free vulnerability and ability to
-  write to the stack allowed it to insert arbitrary code. These exploits, when
-  coupled, provided the user the ability to gain root privileges of a phone.
-  However, these we're all made possible through a classic buffer overflow
-  vulnerability.
+* Conclusion
+  The classic buffer overflow vulnerability allowed /zergRush/ to be successful
+  in exploiting the Android operating system. cite:issue,vuln,email Its ability
+  to overwrite the stack and modify the return pointer with ROP gadgets allowed
+  it to gain control of the program execution, and its exploitation of the
+  use-after-free vulnerability and ability to write to the heap allowed it to
+  insert arbitrary code. cite:rev These exploits, when coupled, provided the
+  user the ability to gain root privileges to the system, making it an effective
+  rootkit. cite:email,sec
 
-bibliographystyle:unsrt
-bibliography:manuscript.bib
+#+BEGIN_EXPORT latex
+\printbibliography
+#+END_EXPORT

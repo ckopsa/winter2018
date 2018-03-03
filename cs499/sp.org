@@ -176,9 +176,9 @@
 ** Overall Status (on-schedule, behind, ahead):
    on-schedule
 ** Hours: (replace ## with your hours for each item)
-   01 - Number of hours worked since last update 21 - Total number of hours
-   worked on the project thus far 126 - Number of total hours anticipated at
-   completion
+   01 - Number of hours worked since last update
+   21 - Total number of hours worked on the project thus far
+   126 - Number of total hours anticipated at completion
 ** Accomplishments:
    - Furthered research on phoneme extraction
 ** Challenges:
@@ -212,21 +212,65 @@
    because I feel like this time can be made up between now and the end of July.
    I'm planned up to put a more adequate amount of time into senior project this
    week.
-* TODO 07 Status Report
-  SCHEDULED: <2018-02-20 Tue> DEADLINE: <2018-02-24 Sat>
+* DONE 07 Status Report
+  CLOSED: [2018-02-25 Sun 18:53] SCHEDULED: <2018-02-20 Tue> DEADLINE: <2018-02-24 Sat>
 ** Project Title:
    TensorFlow
 ** Team Members (if applicable):
    Colton Kopsa & Quade Morrison
 ** Overall Status (on-schedule, behind, ahead):
+   on-schedule
 ** Hours: (replace ## with your hours for each item)
-   ## - Number of hours worked since last update
-   ## - Total number of hours worked on the project thus far
-   ## - Number of total hours anticipated at completion
+   - 04 - Number of hours worked since last update
+   - 25 - Total number of hours worked on the project thus far
+   - 126 - Number of total hours anticipated at completion
 ** Accomplishments:
+   - Found /merlin/ a neural net based speech synthesis library
+   - Learned more about unit selection speech synthesis vs statistical
+     parametric speech synthesis
 ** Challenges:
+   - Should we create a unit-selection speech synthesis or a statistical
+     parametric speech synthesis?
+   - How are we going to figure out phoneme extraction?
 ** Plans / Goals for next week:
+   - Still figuring out phoneme extraction.
+   - Meet with Quade to make plans for project's successful completion
 ** SPED Talk Insight (Briefly describe an insight or something interesting you learned from the SPED talks this week):
+   I didn't know that Windows Universal Applications were a thing. It's
+   interesting that Windows has a devkit that allows you to make one application
+   work across all of their devices. Google I guess did something similar with
+   allowing Chromebooks to run Android applications. I wonder if we'll see iOS
+   applications on the MacOS operating system.
+** 9: Other comments for the instructor:
+* TODO 08 Status Report
+  SCHEDULED: <2018-03-02 Fri> DEADLINE: <2018-03-03 Sat>
+** Project Title:
+   TensorFlow
+** Team Members (if applicable):
+   Colton Kopsa & Quade Morrison
+** Overall Status (on-schedule, behind, ahead):
+   on-schedule
+** Hours: (replace ## with your hours for each item)
+   - 04 - Number of hours worked since last update
+   - 25 - Total number of hours worked on the project thus far
+   - 126 - Number of total hours anticipated at completion
+** Accomplishments:
+   - Found /merlin/ a neural net based speech synthesis library
+   - Learned more about unit selection speech synthesis vs statistical
+     parametric speech synthesis
+** Challenges:
+   - Should we create a unit-selection speech synthesis or a statistical
+     parametric speech synthesis?
+   - How are we going to figure out phoneme extraction?
+** Plans / Goals for next week:
+   - Still figuring out phoneme extraction.
+   - Meet with Quade to make plans for project's successful completion
+** SPED Talk Insight (Briefly describe an insight or something interesting you learned from the SPED talks this week):
+   I didn't know that Windows Universal Applications were a thing. It's
+   interesting that Windows has a devkit that allows you to make one application
+   work across all of their devices. Google I guess did something similar with
+   allowing Chromebooks to run Android applications. I wonder if we'll see iOS
+   applications on the MacOS operating system.
 ** 9: Other comments for the instructor:
 * Speech Synthesis
   - Context is something that needs to be stored on each diphone. Metadata for

@@ -31,6 +31,11 @@
   
   - Physical - medium
   
+* Code of Ethics 
+  - Protect
+  - Act Honorably
+  - Provide Service
+  - Advance the Profession
 * Attackers Advantage
   - Unknown attacks
   - Defend all points - choose weakest point
@@ -45,6 +50,47 @@
   - Insert Payload Onto Host
   - Victim visits infected site
   - Exploitation
+* Terms
+  - Asset - something to be defended
+  - Threat - potential event to devalue the asset
+  - Vulnerability - weakness in system protecting it
+  - Risk - vulnerability paired with a threat
+  - Attack - risk realized
+  - Mitigation - reducing the risk of attack
+* Memory Injection
+  - Array Index:
+    1. There must be an array and an array index variable
+    2. The array index variable must be reachable through external input.
+    3. There must not be bounds checking on the array index variable
+  - Pointer Subterfuge:
+    1. T
+* DREAD
+  - Damage
+  - Reproducability
+  - Exploitability
+  - Affected Users
+  - Discoverability
+* STRIDE
+* Threat Model Process
+  - Assemble Resources
+  - Decompose the System
+  - Identify Threats
+  - Rank the Threats
+  - Create a response plan
+  - Mitigate the threats
+* UML Stuff
+  - Interactors
+  - Flow
+  - Processors
+  - Trust Boundaries
+  - Storage
+* 6 Mitigation Strategies
+  - Countermeasures
+  - Preemption
+  - Prevention
+  - Detection
+  - Deflection
+  - Deterrence
 * DONE Ponder 02: Analysis [3/3]
   CLOSED: [2018-01-20 Sat 14:46] DEADLINE: <2018-01-20 Sat>
   - [X] Add sources to each of the individual sections with references
@@ -244,19 +290,19 @@
 
   There is no formal submission this week. That being said, you should have a
   rough draft of your paper completed by the end of the week.
-* TODO Ponder 06 : Vulnerabilities & Exploits
-  SCHEDULED: <2018-02-13 Tue> DEADLINE: <2018-02-24 Sat>
+* DONE Ponder 06 : Vulnerabilities & Exploits
+  CLOSED: [2018-02-25 Sun 22:17] SCHEDULED: <2018-02-13 Tue> DEADLINE: <2018-02-24 Sat>
   [[https://content.byui.edu/file/2390954c-eadb-4592-aa96-5a29275f9404/1/Ponder/470.06.Lab.html][Assignment]]
   
-* TODO Prepare 08 : Reading and Quiz
-  SCHEDULED: <2018-02-19 Mon> DEADLINE: <2018-02-20 Tue>
+* DONE Prepare 08 : Reading and Quiz
+  CLOSED: [2018-02-19 Mon 18:35] SCHEDULED: <2018-02-19 Mon> DEADLINE: <2018-02-20 Tue>
   - [ ] Chapter 08 : Threat Mitigation
 
   As with last week, don't forget to take the quiz. The highest score will be
   the recorded score.
 
-* TODO Ponder 07 : Threat Model
-  SCHEDULED: <2018-02-22 Thu> DEADLINE: <2018-02-24 Sat>
+* DONE Ponder 07 : Threat Model
+  CLOSED: [2018-02-24 Sat 16:21] SCHEDULED: <2018-02-22 Thu> DEADLINE: <2018-02-24 Sat>
   The purpose of this assignment is to demonstrate proficiency in all the steps
   in threat modeling. This is a group assignment; you will work with same group
   you use for the problem sets for online students. In order to get full credit
@@ -303,8 +349,8 @@
    e-mailing the professor directly. You might need to take a picture of your DFD
    to do this. The grading is:
 
-* TODO 5. Reviewing a Paper
-  SCHEDULED: <2018-02-22 Thu> DEADLINE: <2018-02-24 Sat>
+* DONE 5. Reviewing a Paper
+  CLOSED: [2018-02-25 Sun 22:17] SCHEDULED: <2018-02-22 Thu> DEADLINE: <2018-02-24 Sat>
   [[https://content.byui.edu/file/2390954c-eadb-4592-aa96-5a29275f9404/1/Ponder/470.07.ResearchReview.html][Assignment]]
   Once you have selected a topic, reply to the post with the subject "Review."
   Since there can be only one review per paper, you need to make sure that a
@@ -324,8 +370,8 @@
   second sources is preliminary, you need to find a better source), do not
   re-write the paper. Grades will be awarded according to how well the defects in
   the final paper were discovered and described by the reviewer.
-* TODO Prove 08 : Midterm Part I
-  SCHEDULED: <2018-02-24 Sat> DEADLINE: <2018-02-27 Tue>
+* DONE Prove 08 : Midterm Part I
+  CLOSED: [2018-02-28 Wed 18:03] SCHEDULED: <2018-02-27 Tue> DEADLINE: <2018-02-27 Tue>
 
   A security-aware software engineer needs to not only write secure code, he
   also needs to be conversant in the fundamental principles of the discipline.
@@ -364,3 +410,36 @@
   the unexpected questions. Do not panic when taking the test. Make sure you
   answer the questions you know first. Come back later for the ones that
   caught you off guard.
+  
+* DONE Prove 08 : Midterm Part II
+  CLOSED: [2018-03-02 Fri 09:46] SCHEDULED: <2018-02-28 Wed> DEADLINE: <2018-03-01 Thu>
+The second part of the midterm will focus on skills. You will be asked to
+perform tasks similar to the Problem Sets from Week 01 – Week 07. However,
+unlike the problem sets, you are to work alone on the Midterm. This will be
+close-book just like Part I.
+
+In order to do this, it is possible that you will need to create an
+illustration. Several of the problems in the Problem Set required you to create
+an image and upload it as a PDF or JPG. Be prepared to do this for the Midterm
+as well.
+
+Though this part of the Midterm is not as time critical as the first, you will
+not have unlimited time to perform this task. From the time the test opens until
+you complete it, you will have one hour.
+
+* TODO Ponder 08 : Research Paper
+  SCHEDULED: <2018-03-01 Thu> DEADLINE: <2018-03-03 Sat>
+  The paper should be roughly five pages in length. The number of words or pages
+  are less important than whether the topic is completely covered. If you find
+  yourself with more than seven pages, you probably went into too much detail,
+  three pages is probably not enough. The paper should completely cover the
+  subject; all the key points should be discussed.
+
+  The paper must follow all the guidelines of "Scholarly Writing". The writing
+  should be clear & professional. Before submitting your paper, carefully read
+  every word aloud to your roommate. If you have difficulty vocalizing a
+  sentence or if your roommate looks at you funny, then you probably need to
+  re-write that sentence or paragraph.
+  
+  Every fact needs to be fully cited. Make sure to have a "Works Cited" section
+  at the end of the paper.
