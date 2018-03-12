@@ -242,8 +242,8 @@
    allowing Chromebooks to run Android applications. I wonder if we'll see iOS
    applications on the MacOS operating system.
 ** 9: Other comments for the instructor:
-* TODO 08 Status Report
-  SCHEDULED: <2018-03-02 Fri> DEADLINE: <2018-03-03 Sat>
+* DONE 08 Status Report
+  CLOSED: [2018-03-05 Mon 09:57] SCHEDULED: <2018-03-02 Fri> DEADLINE: <2018-03-03 Sat>
 ** Project Title:
    TensorFlow
 ** Team Members (if applicable):
@@ -251,27 +251,92 @@
 ** Overall Status (on-schedule, behind, ahead):
    on-schedule
 ** Hours: (replace ## with your hours for each item)
-   - 04 - Number of hours worked since last update
-   - 25 - Total number of hours worked on the project thus far
+   - 03 - Number of hours worked since last update
+   - 28 - Total number of hours worked on the project thus far
    - 126 - Number of total hours anticipated at completion
 ** Accomplishments:
-   - Found /merlin/ a neural net based speech synthesis library
-   - Learned more about unit selection speech synthesis vs statistical
-     parametric speech synthesis
+   - Experimented with merlin walking through a tutorial to produce synthesized
+     voice.
 ** Challenges:
-   - Should we create a unit-selection speech synthesis or a statistical
-     parametric speech synthesis?
-   - How are we going to figure out phoneme extraction?
+   - How are we going to figure out phoneme extraction? Because our requirements
+     are to take someone else's voice and produce speech, we still need a way to
+     quickly go from the audio we get from recording someone to the properly
+     structured data with phonemes.
 ** Plans / Goals for next week:
    - Still figuring out phoneme extraction.
-   - Meet with Quade to make plans for project's successful completion
 ** SPED Talk Insight (Briefly describe an insight or something interesting you learned from the SPED talks this week):
-   I didn't know that Windows Universal Applications were a thing. It's
-   interesting that Windows has a devkit that allows you to make one application
-   work across all of their devices. Google I guess did something similar with
-   allowing Chromebooks to run Android applications. I wonder if we'll see iOS
-   applications on the MacOS operating system.
+   Android Bluetooth has always caught my eye as something interesting.
+   Bluetooth is just really powerful. I've done a short project doing with
+   Bluetooth on Android a while ago, and it seems the BLE is a bit easier to
+   implement. Not sure how, but interesting nonetheless.
 ** 9: Other comments for the instructor:
+   None
+* DONE 09 Status Report
+  CLOSED: [2018-03-12 Mon 14:32] DEADLINE: <2018-03-10 Sat>
+** Project Title:
+   TensorFlow
+** Team Members (if applicable):
+   Colton Kopsa & Quade Morrison
+** Overall Status (on-schedule, behind, ahead):
+   on-schedule
+** Hours: (replace ## with your hours for each item)
+   - 01 - Number of hours worked since last update
+   - 29 - Total number of hours worked on the project thus far
+   - 126 - Number of total hours anticipated at completion
+** Accomplishments:
+   - Looked into creating the phonemes for creating our phrase to reproduce
+   - Found some tools to do so, but they don't convert into the correct form
+** Challenges:
+   - I need to schedule time with Quade to work throughout the week. I feel like
+     we both know we need to meet, but don't do sufficient planning bring it to
+     pass.
+** Plans / Goals for next week:
+   - Still figuring out phoneme extraction.
+   - Look into the proper sound dictionary format to encode our phrase in.
+** SPED Talk Insight (Briefly describe an insight or something interesting you learned from the SPED talks this week):
+   There is a technology called Flutter that does similar things to this from
+   Google. It uses Dart for a programming language and has you programatically
+   creating the UI as opposed to defining it in XML or something similar.
+** 9: Other comments for the instructor:
+   A bit of a rough week, I think I need to spend more time breaking our
+   somewhat large task into a bit more bite size pieces. It's easy to put senior
+   project off with the mentality that I'll have more time next semester, and
+   though that may be true, I still want to make sure that I put forth a proper
+   amount of effort for this semester.
+   
+* TODO 10 Status Report
+  DEADLINE: <2018-03-17 Sat>
+** Project Title:
+   TensorFlow
+** Team Members (if applicable):
+   Colton Kopsa & Quade Morrison
+** Overall Status (on-schedule, behind, ahead):
+   on-schedule
+** Hours: (replace ## with your hours for each item)
+   - 01 - Number of hours worked since last update
+   - 29 - Total number of hours worked on the project thus far
+   - 126 - Number of total hours anticipated at completion
+** Accomplishments:
+   - Looked into creating the phonemes for creating our phrase to reproduce
+   - Found some tools to do so, but they don't convert into the correct form
+** Challenges:
+   - I need to schedule time with Quade to work throughout the week. I feel like
+     we both know we need to meet, but don't do sufficient planning bring it to
+     pass.
+** Plans / Goals for next week:
+   - Still figuring out phoneme extraction.
+   - Look into the proper sound dictionary format to encode our phrase in.
+** SPED Talk Insight (Briefly describe an insight or something interesting you learned from the SPED talks this week):
+   There is a technology called Flutter that does similar things to this from
+   Google. It uses Dart for a programming language and has you programatically
+   creating the UI as opposed to defining it in XML or something similar.
+** 9: Other comments for the instructor:
+   A bit of a rough week, I think I need to spend more time breaking our
+   somewhat large task into a bit more bite size pieces. It's easy to put senior
+   project off with the mentality that I'll have more time next semester, and
+   though that may be true, I still want to make sure that I put forth a proper
+   amount of effort for this semester.
+   
 * Speech Synthesis
   - Context is something that needs to be stored on each diphone. Metadata for
     each of the diphones essentially. Context is also something that is provided

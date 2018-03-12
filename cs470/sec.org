@@ -85,12 +85,20 @@
   - Trust Boundaries
   - Storage
 * 6 Mitigation Strategies
-  - Countermeasures
-  - Preemption
-  - Prevention
+  - Countermeasures - 
+  - Preemption - Attack them before I get attacked
+  - Prevention - 
   - Detection
   - Deflection
   - Deterrence
+* Safe Harbor
+  - Data Integrity - Collected data is correct and accurate.
+  - Enforcement - Mis-handled data has repercussions.
+  - Access - You have access to the data.
+  - Choice - You can opt.
+  - Onward Transfer - 3rd Party also uses Safe Harbor.
+  - Notice - Notified data is being collected.
+  - Security - Safe beyond reasonable precautions.
 * DONE Ponder 02: Analysis [3/3]
   CLOSED: [2018-01-20 Sat 14:46] DEADLINE: <2018-01-20 Sat>
   - [X] Add sources to each of the individual sections with references
@@ -413,22 +421,22 @@
   
 * DONE Prove 08 : Midterm Part II
   CLOSED: [2018-03-02 Fri 09:46] SCHEDULED: <2018-02-28 Wed> DEADLINE: <2018-03-01 Thu>
-The second part of the midterm will focus on skills. You will be asked to
-perform tasks similar to the Problem Sets from Week 01 – Week 07. However,
-unlike the problem sets, you are to work alone on the Midterm. This will be
-close-book just like Part I.
+  The second part of the midterm will focus on skills. You will be asked to
+  perform tasks similar to the Problem Sets from Week 01 – Week 07. However,
+  unlike the problem sets, you are to work alone on the Midterm. This will be
+  close-book just like Part I.
 
-In order to do this, it is possible that you will need to create an
-illustration. Several of the problems in the Problem Set required you to create
-an image and upload it as a PDF or JPG. Be prepared to do this for the Midterm
-as well.
+  In order to do this, it is possible that you will need to create an
+  illustration. Several of the problems in the Problem Set required you to create
+  an image and upload it as a PDF or JPG. Be prepared to do this for the Midterm
+  as well.
 
-Though this part of the Midterm is not as time critical as the first, you will
-not have unlimited time to perform this task. From the time the test opens until
-you complete it, you will have one hour.
+  Though this part of the Midterm is not as time critical as the first, you will
+  not have unlimited time to perform this task. From the time the test opens until
+  you complete it, you will have one hour.
 
-* TODO Ponder 08 : Research Paper
-  SCHEDULED: <2018-03-01 Thu> DEADLINE: <2018-03-03 Sat>
+* DONE Ponder 08 : Research Paper
+  CLOSED: [2018-03-03 Sat 14:04] SCHEDULED: <2018-03-01 Thu> DEADLINE: <2018-03-03 Sat>
   The paper should be roughly five pages in length. The number of words or pages
   are less important than whether the topic is completely covered. If you find
   yourself with more than seven pages, you probably went into too much detail,
@@ -443,3 +451,152 @@ you complete it, you will have one hour.
   
   Every fact needs to be fully cited. Make sure to have a "Works Cited" section
   at the end of the paper.
+* DONE Prepare 09 : Reading
+  CLOSED: [2018-03-06 Tue 06:18] DEADLINE: <2018-03-06 Tue>
+  [[https://content.byui.edu/file/2390954c-eadb-4592-aa96-5a29275f9404/1/Prepare/470.09.Prepare.html][Assignment]]
+* DONE Ponder 09 : Password Program
+  CLOSED: [2018-03-07 Wed 12:13] DEADLINE: <2018-03-10 Sat>
+  [[https://content.byui.edu/file/2390954c-eadb-4592-aa96-5a29275f9404/1/Ponder/470.09.Lab.html][Assignment]]
+  
+  #+BEGIN_SRC C++ :results output :tangle /ssh:kopsac@157.201.194.204#215:~/cs470-ponder9.cpp
+    /***********************************************************************
+     ,* Program:
+     ,*    Lab 09, Password Strength
+     ,*    Brother Helfrich, CS470
+     ,* Author:
+     ,*    Colton Kopsa
+     ,* Summary:
+     ,*    This program is designed to evaluate password strength. It does this by
+     ,*    checking the input of a string to contain members of certain alphabets and
+     ,*    then generating the number of combinations with the string length and
+     ,*    total size of alphabet. It also calculates the bit equivalence. The users
+     ,*    input can be anything that fits in memory. This program does not take
+     ,*    words into account, only digits, upper/lowercase letters and symbols.
+     ,************************************************************************/
+
+    #include <iostream>
+    #include <math.h>
+    using namespace std;
+
+    enum AlphaTypes { PUNC, LOWER, UPPER, NUM};
+    const int ALPHA_COUNT[] = {
+      32, // PUNC
+      26, // LOWER
+      26, // UPPER
+      10  // NUM
+    };
+
+    #define NUM_ALPHA_TYPE 5
+
+    /*
+     ,* Returns the bit equivalence of the number of combinations.
+     ,*/
+    int getNumBits(long combinaions)
+    {
+      return log2(combinaions);
+    }
+
+    /*
+     ,* Returns true if all alphabet types are found (e.g. digit, upper, lower,
+     ,* symbol) else false
+     ,*/
+    bool allAlphaTypesFound(bool alphaType[])
+    {
+      for (int i = 0; i < NUM_ALPHA_TYPE; i++)
+        {
+          // Return false if any are false
+          if (alphaType[i] == false)
+            {
+              return false;
+            }
+        }
+      return true;
+    }
+
+    /*
+     ,* Returns the number of possible combinations exist with the same length and
+     ,* alphabet as the given string.
+     ,*/
+    long getNumCombinations(string password)
+    {
+      // Stores whether a given alphabet type has been found.
+      bool alphaType[NUM_ALPHA_TYPE] = {false, false, false, false};
+
+      int passwordLength = password.length();
+
+      // Checks each character of the string returning at end of string or when all
+      // alphabet types have been found
+      for (int i = 0; i < passwordLength && !allAlphaTypesFound(alphaType); i++)
+        {
+          if (isupper(password[i]))
+            alphaType[UPPER] = true;
+          else if (islower(password[i]))
+            alphaType[LOWER] = true;
+          else if (isdigit(password[i]))
+            alphaType[NUM] = true;
+          else
+            alphaType[PUNC] = true;
+        }
+
+      // Calculates alphabet size
+      long alphabetSize = 0;
+      for (int i = 0; i < NUM_ALPHA_TYPE; i++)
+        alphabetSize += ALPHA_COUNT[i] * alphaType[i];
+
+      // Calculates combinations
+      long combinations = pow(alphabetSize, passwordLength);
+
+      return combinations;
+    }
+
+    /*
+     ,* Prompts the user for a password and displays the combination strength and bit
+     ,* strength
+     ,*/
+    int main()
+    {
+      string password = "";
+      cout << "Please enter the password: ";
+      cin >> password;
+
+      long combinations = getNumCombinations(password);
+      int bits = getNumBits(combinations);
+
+      cout << "There are " << combinations  << " combinations" << endl
+           << "That is equivalent to a key of " << bits << " bits" << endl;
+    }
+  #+END_SRC
+
+  #+RESULTS:
+  : Please  enter the password: 
+  : There are 1000 combinations
+  : That is equivalent to a key of 9 bits
+* TODO Prepare 10 : Reading [0/4]
+  DEADLINE: <2018-03-13 Tue>
+  The reading for this week will include one chapter from the textbook and two
+  additional articles.
+*** TODO Chapter 10: Access Control
+    Besides introducing the topic of access control, the point of this chapter is to identify the three ways to enforce access control policy.
+*** TODO Secure computer systems
+    This article is impossibly dense. That being said, focus on the "Elements of
+    the Model" on page 12-18.
+
+    D. Bell & L. LaPadula. "Secure computer systems", Vol. II—a mathematical
+    model, Vol. III—a refinement of the mathematical model. Technical Report
+    MTR-2547 (three volumes), Mitre Corporation, Bedford, MA,
+    March–December 1973. [Online] Available: No. MTR-2547-VOL-1
+*** TODO Integrity Considerations for Secure Computer Systems
+    As with Bell-LaPadula, this paper is very dense. Most of the relevant
+    information are on page 19-31.
+
+    K. Biba. "Integrity Considerations for Secure Computer Systems", MTR-3153,
+    The Mitre Corporation, June 1975
+*** TODO Quiz
+   As with last week, don't forget to take the quiz. The highest score will be
+   the recorded score.
+* TODO Ponder 10 : Bell-Lapadula
+  DEADLINE: <2018-03-17 Sat>
+  [[https://content.byui.edu/file/2390954c-eadb-4592-aa96-5a29275f9404/1/Ponder/470.10.Lab.html][Assignment]] 
+* TODO Prove 10 : Final Project
+  DEADLINE: <2018-03-17 Sat>
+  [[https://byui.brightspace.com/d2l/le/calendar/342450/event/1752662/detailsview#1752662][Assignment]] 

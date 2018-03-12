@@ -759,14 +759,14 @@
   CLOSED: [2018-02-20 Tue 19:24] SCHEDULED: <2018-02-20 Tue> DEADLINE: <2018-02-21 Wed>
   #+BEGIN_SRC cpp :results output :tangle /ssh:kopsac@157.201.194.204#215:/home/kop14002/courses/cs345/lab4.cpp
     /***********************************************************************
-    ,* Program:
-    ,*    Lab Threads
-    ,*    Brother Jones, CS 345
-    ,* Author:
-    ,*    Colton Kopsa
-    ,* Summary:
-    ,*    Perform M x N matrix multiplication on two matrices using threads.
-    ,************************************************************************/
+     ,* Program:
+     ,*    Lab Threads
+     ,*    Brother Jones, CS 345
+     ,* Author:
+     ,*    Colton Kopsa
+     ,* Summary:
+     ,*    Perform M x N matrix multiplication on two matrices using threads.
+     ,************************************************************************/
     #include <iostream>
     #include <pthread.h>
     #include <iomanip>
@@ -779,78 +779,78 @@
 
     // [rows][columns]
     int A [M][K] =
-    {
-       {1,4,3,7,9,1},
-       {2,5,4,8,6,3},
-       {3,6,5,8,2,3},
-       {3,8,8,1,4,1},
-       {1,5,4,5,7,9}
-    }
-       ;
+      {
+        {1,4,3,7,9,1},
+        {2,5,4,8,6,3},
+        {3,6,5,8,2,3},
+        {3,8,8,1,4,1},
+        {1,5,4,5,7,9}
+      }
+      ;
     int B [K][N] =
-    {
-       {1,5,6,5,7,9,8,2},
-       {1,2,3,5,5,6,7,8},
-       {3,5,9,7,3,1,4,1},
-       {8,3,1,2,6,5,2,4},
-       {3,8,8,1,4, 1,3,3},
-       {8,7,6,5,4,3,2,1}
-    };
+      {
+        {1,5,6,5,7,9,8,2},
+        {1,2,3,5,5,6,7,8},
+        {3,5,9,7,3,1,4,1},
+        {8,3,1,2,6,5,2,4},
+        {3,8,8,1,4, 1,3,3},
+        {8,7,6,5,4,3,2,1}
+      };
     int C [M][N];  // this is where the answer will be placed
 
     /* structure for passing data to threads */
     struct ThreadData
     {
-       int i; /* row */
-       int j; /* column */
+      int i; /* row */
+      int j; /* column */
     };
 
     void *print_message_function( void *ptr );
 
     int main()
     {
-       pthread_t threads[NUM_THREADS];
+      pthread_t threads[NUM_THREADS];
 
-       /* We have to create M * N worker threads */
-       int threadCount = 0;
-       for (int i = 0; i < M; i++)
-          for (int j = 0; j < N; j++ )
+      /* We have to create M * N worker threads */
+      int threadCount = 0;
+      for (int i = 0; i < M; i++)
+        for (int j = 0; j < N; j++ )
           {
-             ThreadData* tData = new ThreadData;
-             tData->i = i;
-             tData->j = j;
-             /* Now create the thread passing it tData as
-             a parameter */
-             pthread_create( &threads[threadCount++], NULL, print_message_function, (void*) tData);
+            ThreadData* tData = new ThreadData;
+            tData->i = i;
+            tData->j = j;
+            /* Now create the thread passing it tData as
+               a parameter */
+            pthread_create( &threads[threadCount++], NULL, print_message_function, (void*) tData);
           }
 
-       for (int i = 0; i < NUM_THREADS; i++)
-          pthread_join(threads[i], NULL);
+      for (int i = 0; i < NUM_THREADS; i++)
+        pthread_join(threads[i], NULL);
 
-       cout << "The product of matrices A and B is:\n";
-       for(int i = 0; i < M; i++)
-       {
+      cout << "The product of matrices A and B is:\n";
+      for(int i = 0; i < M; i++)
+        {
           for(int j = 0; j < N; j++)
-          {
-             cout << setw(8) << C[i][j];
-          }
+            {
+              cout << setw(8) << C[i][j];
+            }
           cout << endl;
-       }
+        }
 
-       return 0;
+      return 0;
     }
 
     void *print_message_function( void *ptr )
     {
-       ThreadData *data;
-       data = (ThreadData *) ptr;
-       int i, sum = 0;
-       for(i = 0; i < K; i++)
-       {
+      ThreadData *data;
+      data = (ThreadData *) ptr;
+      int i, sum = 0;
+      for(i = 0; i < K; i++)
+        {
           sum += A[data->i][i] * B[i][data->j];
-       }
-       C[data->i][data->j] = sum;
-       pthread_exit(0);
+        }
+      C[data->i][data->j] = sum;
+      pthread_exit(0);
     }
   #+END_SRC
 
@@ -981,6 +981,7 @@
     the TLB does not contain the item, we have an additional 200 ns to get the
     required entry into the TLB:
     - (220 * 0.85) + (420 * 0.15) = 250 ns
+    - (100 * 0.65) + (200 * 0.35 + 5000000)
 *** Generally speaking, what is the relationship between TLB hit rate and EMAT?
     The higher the TLB hit rate is, the smaller the EMAT is, because the
     additional 200 ns penalty to get the entry into the TLB contributes less to
@@ -1000,12 +1001,12 @@
 *** What physical address, if any would each of the following virtual addresses correspond to? (Do not try to handle page faults, if any, just indicate that there would be a page fault.)
 
 **** 1052
-    1 * 1024 + 28
-    7 * 1024 + 28 => 7196
+     1 * 1024 + 28
+     7 * 1024 + 28 => 7196
 
 **** 2221
-    2 * 1024 + 173
-    ? * 1024 + 173 => Page Fault
+     2 * 1024 + 173
+     ? * 1024 + 173 => Page Fault
 
 **** 5499
      5 * 1024 + 379
@@ -1024,17 +1025,25 @@
   CLOSED: [2018-02-27 Tue 22:02] SCHEDULED: <2018-02-27 Tue> DEADLINE: <2018-02-27 Tue>
   [[file:producerConsumerLab.pdf][Lab 5]] 
   #+BEGIN_SRC C++ :tangle /ssh:kopsac@157.201.194.204#215:~/lab5.cpp :results raw
-    /***********************************************************************
-    ,* Program:
-    ,*    Lab ProducerConsumer
-    ,*    Brother Jones, CS 345
-    ,* Author:
-    ,*    Colton Kopsa
-    ,*
-    ,* Summary:
-    ,*    This is an example of the producer consumer solution done with mutexs and
-    ,*    semaphores.
-    ,************************************************************************/
+    /****************************************************************************
+     ,* Program:
+     ,*    Lab ProducerConsumerT2
+     ,*    Brother Jones, CS 345
+     ,* Author:
+     ,*    Colton Kopsa
+     ,*
+     ,* Summary:
+     ,*    This is an example of the producer consumer solution done with mutexs and
+     ,*    semaphores.
+     ,************************************************************************
+     ,*
+     ,* Changes made to my code for the re-submission:
+     ,*   (examples:)
+     ,*   - I fixed it to produce the correct number of consumer thread
+     ,*   - I fixed the consume not notifying the semaphore when done
+     ,*   - I added usage statement on incorrect arguments
+     ,*
+     ,*****************************************************************************/
     #include <semaphore.h>
     #include <pthread.h>
     #include <cstdlib>
@@ -1055,89 +1064,91 @@
     int front = 0;
 
     /**
-    ,* producer - generates a random value to insert into the shared buffer
-    ,*/
+     ,* producer - generates a random value to insert into the shared buffer
+     ,*/
     void *producer (void *param)
     {
       bufferItem itemProduced;
       while (true)
-      {
-        /* sleep for a random period of time */
-        usleep(rand() % 150000);
-        /* generate a random number */
-        itemProduced = rand() % 1000;
-        /* insert item into shared global buffer and print what was done */
-        /* acquire the lock */
-        sem_wait(&empty);
-        pthread_mutex_lock(&myMutex);
-        /*** critical section ***/
-        int val;
-        sem_getvalue(&full, &val);
-        buffer[(val+front)%BUFFER_SIZE] = itemProduced;
-        cout << setw(5)
-             << itemProduced
-             << setw(6)
-             << "P"
-             << (bufferItem) param << endl;
-        /* release the lock */
-        pthread_mutex_unlock(&myMutex);
-        sem_post(&full);
-      }
+        {
+          /* sleep for a random period of time */
+          usleep(rand() % 150000);
+          /* generate a random number */
+          itemProduced = rand() % 1000;
+          /* insert item into shared global buffer and print what was done */
+          /* acquire the lock */
+          sem_wait(&empty);
+          pthread_mutex_lock(&myMutex);
+          /*** critical section ***/
+          int val;
+          sem_getvalue(&full, &val);
+          buffer[(val+front)%BUFFER_SIZE] = itemProduced;
+          cout << setw(5)
+               << itemProduced
+               << setw(6)
+               << "P"
+               << (bufferItem) param << endl;
+          /* release the lock */
+          pthread_mutex_unlock(&myMutex);
+          sem_post(&full);
+        }
     }
 
     /**
-    ,* consumer - consumes a random value to from the shared buffer
-    ,*/
+     ,* consumer - consumes a random value to from the shared buffer
+     ,*/
     void *consumer(void *param)
     {
       bufferItem consumedItem;
       while (true)
-      {
-        /* sleep for a random period of time */
-        usleep(rand() % 150000);
-        /* consume item from shared global buffer and print what was done */
-        /* acquire the lock */
-        sem_wait(&full);
-        pthread_mutex_lock(&myMutex);
-        /*** critical section ***/
-        consumedItem = buffer[front];
-        front = (front + 1) % BUFFER_SIZE;
+        {
+          /* sleep for a random period of time */
+          usleep(rand() % 150000);
+          /* consume item from shared global buffer and print what was done */
+          /* acquire the lock */
+          sem_wait(&full);
+          pthread_mutex_lock(&myMutex);
+          /*** critical section ***/
+          consumedItem = buffer[front];
+          front = (front + 1) % BUFFER_SIZE;
 
-        cout << setw(22)
-             << consumedItem
-             << setw(6)
-             << "C"
-             << (bufferItem) param+1 << endl;
+          cout << setw(22)
+               << consumedItem
+               << setw(6)
+               << "C"
+               << (bufferItem) param+1 << endl;
 
-        /* release the lock */
-        pthread_mutex_unlock(&myMutex);
-        sem_post(&empty);
-      }
+          /* release the lock */
+          pthread_mutex_unlock(&myMutex);
+          sem_post(&empty);
+        }
     }
 
     /**
-    ,* main - simulates the consumer producer solution using semaphores and a mutex
-    ,*/
+     ,* main - simulates the consumer producer solution using semaphores and a mutex
+     ,*/
     int main (int argc, char *argv[])
     {
       /*  1. Check and get command line arguments argv[1], argv[2], argv[3] */
-      int sleepTime = 1; // defaults
-      int producers = 5; // defaults
-      int consumers = 5; // defaults
+      int sleepTime = 0; // defaults
+      int producers = 0; // defaults
+      int consumers = 0; // defaults
       if (argc == 4)
-      {
-        sleepTime = atoi(argv[1]);
-        producers = atoi(argv[2]);
-        consumers = atoi(argv[3]);
-        cout << "Sleep time: " << sleepTime << endl;
-        cout << "Number of Producers: " << producers << endl;
-        cout << "Number of Consumers: " << consumers << endl;
-      }
+        {
+          sleepTime = atoi(argv[1]);
+          producers = atoi(argv[2]);
+          consumers = atoi(argv[3]);
+          cout << "Sleep time: " << sleepTime << endl;
+          cout << "Number of Producers: " << producers << endl;
+          cout << "Number of Consumers: " << consumers << endl;
+        }
       else
-      {
-        cout << "Only " << argc << " arguments were provided." << endl;
-        // return -1;
-      }
+        {
+          cout << "Only " << argc << " argument(s) were provided." << endl;
+          cout << "Correct usage: 'a.out sleepTime numProducers numConsumers'\n";
+
+          return -1;
+        }
       /*  2. Initialize buffer [good for error checking but not really needed]*/
       for(int i = 0; i < BUFFER_SIZE; i++)
         buffer[i] = 0;
@@ -1156,178 +1167,173 @@
       /*  4. Create producer threads(s) */
       pthread_t producerThreads[producers];
       for (long i = 0; i < producers; i++)
-      {
-        int error;
-        error = pthread_create(&producerThreads[i], NULL, producer, (void*)i);
-        if (error != 0)
         {
-          cout << "Error creating producer thread: " << error << endl;
-          return -1;
+          int error;
+          error = pthread_create(&producerThreads[i], NULL, producer, (void*)i);
+          if (error != 0)
+            {
+              cout << "Error creating producer thread: " << error << endl;
+              return -1;
+            }
         }
-      }
       /*  5. Create consumer threads(s) */
       pthread_t consumerThreads[consumers];
-      for (long i = 0; i < producers; i++)
-      {
-        int error;
-        error = pthread_create(&consumerThreads[i], NULL, consumer, (void*)i);
-        if (error != 0)
+      for (long i = 0; i < consumers; i++)
         {
-          cout << "Error creating consumer thread: " << error << endl;
-          return -1;
+          int error;
+          error = pthread_create(&consumerThreads[i], NULL, consumer, (void*)i);
+          if (error != 0)
+            {
+              cout << "Error creating consumer thread: " << error << endl;
+              return -1;
+            }
         }
-      }
       /*  6. Sleep [ to read manual page, do:  man 3 sleep ]*/
       sleep(sleepTime);
       /*  7. Cancel threads [ pthread_cancel() ] */
       for (int i = 0; i < producers; i++)
-      {
-        pthread_cancel(producerThreads[i]);
-      }
+        {
+          pthread_cancel(producerThreads[i]);
+        }
       for (int i = 0; i < consumers; i++)
-      {
-        pthread_cancel(consumerThreads[i]);
-      }
+        {
+          pthread_cancel(consumerThreads[i]);
+        }
       /*  8. Exit */
       return 0;
     }
   #+END_SRC
-
-  #+RESULTS:
-  Only 1 arguments were provided.
-  Produced  by P#  Consumed  by C#
-  ========  =====  ========  =====
-                       0     C3
-    165     P0
-     42     P1
-                      42     C4
-    327     P3
-    840     P4
-                     840     C3
-    169     P3
-                     169     C2
-    560     P1
-                     560     C5
-    278     P3
-    335     P2
-                     335     C4
-    826     P0
-                     826     C1
-                     840     C1
-                     169     C1
-                     560     C4
-                     335     C2
-    821     P0
-                     821     C5
-    393     P3
-                     393     C4
-                     169     C1
-    745     P2
-    228     P4
-                     228     C2
-    153     P1
-                     153     C3
-    668     P1
-    124     P2
-    530     P3
-                     530     C4
-    666     P3
-                     666     C2
-    801     P2
-                     801     C5
-    853     P0
-                     853     C3
-    298     P4
-    981     P2
-                     981     C1
-                     530     C4
-     63     P1
-    425     P3
-    115     P1
-                     115     C2
-                     801     C1
-                     853     C2
-                     981     C4
-    105     P0
-                     105     C1
-                     115     C2
-                     801     C5
-    188     P2
-                     188     C3
-    752     P3
-    716     P0
-    337     P4
-    501     P4
-    871     P1
-                     871     C2
-    137     P1
-                     137     C3
-    294     P2
-                     294     C2
-                     801     C5
-                     188     C4
-                     871     C3
-    635     P3
-                     635     C1
-    399     P3
-    412     P0
-                     412     C3
-    557     P2
-                     557     C2
-    968     P1
-                     968     C1
-    530     P3
-    942     P3
-     82     P2
-    852     P4
-                     852     C4
-    712     P3
-    901     P1
-                     901     C5
-    738     P0
-    616     P0
-                     616     C5
-                     557     C2
-    335     P2
-    972     P0
-     95     P1
-                      95     C3
-                     852     C1
-    289     P3
-                     289     C4
-                     616     C5
-    123     P4
-                     123     C2
-                      95     C5
-    770     P0
-                     770     C3
-                     289     C5
-    844     P2
-                     844     C4
-    394     P3
-    738     P1
-                     738     C4
-                      95     C2
-                     770     C1
-    623     P2
-    385     P4
-    272     P1
-                     272     C1
-    385     P0
-                     385     C4
-    623     P3
-    144     P2
-    735     P4
-                     735     C5
-                      95     C3
-                     770     C5
-     11     P1
-                      11     C1
-    244     P0
-  
 * DONE Lab 5 Review
   CLOSED: [2018-02-28 Wed 14:00] SCHEDULED: <2018-02-28 Wed> DEADLINE: <2018-03-01 Thu>
-* TODO Lab 5 T-2 
-  SCHEDULED: <2018-03-01 Thu> DEADLINE: <2018-03-03 Sat>
-* TODO Lab 5 Grade Peers
-  SCHEDULED: <2018-03-01 Thu> DEADLINE: <2018-03-03 Sat>
+* DONE Lab 5 T-2 
+  CLOSED: [2018-03-03 Sat 14:04] SCHEDULED: <2018-03-01 Thu> DEADLINE: <2018-03-03 Sat>
+* DONE Lab 5 Grade Peers
+  CLOSED: [2018-03-03 Sat 14:04] SCHEDULED: <2018-03-01 Thu> DEADLINE: <2018-03-03 Sat>
+* DONE Weekly Reading [3/3]
+  CLOSED: [2018-03-12 Mon 10:53]
+** DONE Virtual memory (8.5, 8.6, 8.8, 8.9.1, 8.9.2, 8.9.5, 8.11)
+   CLOSED: [2018-03-05 Mon 17:49] DEADLINE: <2018-03-05 Mon>
+** DONE Parallel Programming : Sections 1-5 
+   CLOSED: [2018-03-07 Wed 15:46] DEADLINE: <2018-03-07 Wed>
+   https://computing.llnl.gov/tutorials/parallel_comp/
+** DONE Parallel Programming : Sections 6-7.1
+   CLOSED: [2018-03-12 Mon 10:58] DEADLINE: <2018-03-09 Fri>
+   https://computing.llnl.gov/tutorials/parallel_comp/
+* DONE Quiz #3 - Main Memory and Virtual Memory
+  CLOSED: [2018-03-08 Thu 12:26] DEADLINE: <2018-03-08 Thu>
+  https://byui.brightspace.com/d2l/lms/quizzing/quizzing.d2l?ou=377202&qi=762730
+* DONE Lab #6 - Page Replacement Algorithms
+  CLOSED: [2018-03-08 Thu 14:13] DEADLINE: <2018-03-09 Fri>
+  https://byui.brightspace.com/d2l/le/content/377202/viewContent/5331213/View
+* DONE HW #9 [6/7]
+  CLOSED: [2018-03-07 Wed 15:46] DEADLINE: <2018-03-07 Wed>
+  [[file:hw9-ch8_osc_wsosim.doc][Assignment Doc]] 
+  
+** DONE (3) What is the copy-on-write feature and under what circumstances is it beneficial to use this feature?
+   CLOSED: [2018-03-07 Wed 12:15]
+   - What is the hardware support required to implement this feature?
+
+   Copy on Write allows processes to share pages rather than each having a
+   separate copy of the pages. However, when one process tried to write to a
+   shared page, then a trap is generated and the OS makes a separate copy of the
+   page for each process. This is commonly used in a fork() operation where the
+   child is supposed to have a complete copy of the parent address space. Rather
+   than create a separate copy, the OS allows the parent and child to share the
+   parent's pages. However, since each is supposed to have its own private copy
+   of the pages, the pages are copied when one of them attemps a write. The
+   hardware support required to implement is simply the following: on each
+   memory access, the page table needs to be consulted to check whether the page
+   is write-protected. If it is indeed write-protected, a trap would occur and
+   the operating system could resolve the issue.
+** DONE (4) What is thrashing and what causes it?
+   CLOSED: [2018-03-05 Mon 14:37]
+   In fact, look at any process that does not have “enough” frames. If the
+   process does not have the number of frames it needs to support pages in
+   active use, it will quickly page-fault. At this point, it must replace some
+   page. However, since all its pages are in active use, it must replace a page
+   that will be needed again right away. Consequently, it quickly faults again,
+   and again, and again, replacing pages that it must bring back in immediately.
+   This high paging activity is called /thrashing/.
+*** How does the system detect thrashing?
+    The system can detect thrashing by evaluating the level of CPU utilization
+    as compared to the level of multiprogramming.
+*** Once it detects thrashing, what can the system do to eliminate this problem?
+    Decrease the degree of multiprogramming.
+*** How can page-fault frequency be used to control thrashing?
+    We can establish upper and lower bounds on the desired page-fault rate
+    (Figure 8.21). If the actual page-fault rate exceeds the upper limit, we
+    allocate the process another frame If the page-fault rate falls below the
+    lower limit, we remove a frame from the process. Thus, we can directly
+    measure and control the page-fault rate to prevent thrashing.
+** DONE (2) What is the difference between a resident set and a working set?
+   CLOSED: [2018-03-07 Wed 12:17]
+    Resident set is that portion of the process image that is actually in
+    real-memory at a particular instant. Working set is that subset of resident
+    set that is actually needed for execution. (Relate this to the
+    variable-window size method for swapping techniques.).
+** DONE (2) What is the effect of setting ∆ to a small value on the page fault frequency and the number of active (non-suspended) processes currently executing in the system?
+   CLOSED: [2018-03-07 Wed 15:09]
+   Consider the parameter ∆ used to define the working-set window in the
+   working-set model.
+   - What is the effect when ∆ is set to a very high value?
+     
+   When Δ is set to a small value, then the set of resident pages for a process
+   might be underestimated, allowing a process to be scheduled even though all
+   of its required pages are not resident. This could result in a large number
+   of page faults. When Δ is set to a large value, then a process’s resident set
+   is overestimated and this might prevent many processes from being scheduled
+   even though their required pages are resident. However, once a process is
+   scheduled, it is unlikely to generate page faults since its resident set has
+   been overestimated.
+** DONE (3) Discuss situations under which the least frequently used page-replacement algorithm generates fewer page faults than the least recently used page-replacement algorithm.
+   CLOSED: [2018-03-07 Wed 15:07]
+   Consider the following sequence of memory accesses in a system that can hold
+   four pages in memory: 1 1 2 3 4 5 1. When page 5 is accessed, the least
+   frequently used page-replacement algorithm would replace a page other than 1,
+   and therefore would not incur a page fault when page 1 is accessed again. On
+   the other hand, for the sequence “1 2 3 4 5 2,” the least recently used
+   algorithm performs better
+** DONE (4) Consider a demand-paging system with the following time-measured utilizations:
+   CLOSED: [2018-03-05 Mon 16:07]
+   CPU utilization:  20%;		Paging disk:  97.7%		Other I/O devices:  5%
+
+	 For each of the following, say whether it will (or is likely to) improve CPU
+	 utilization. Briefly explain your answers:
+  
+   a.	Install a faster CPU
+      - CPU utilization will go down because requests are getting sent faster.
+   b.	Install a bigger (more GBs) paging disk.
+      - Doesn't reduce page faults
+   c.	Increase the degree of multiprogramming.
+      - No, more applications will need more pages which increase thrashing.
+   d.	Decrease the degree of multiprogramming.
+      - Yes, if less applications are populating our pages, we will have less
+        page faults.
+   e.	Install more main memory.
+      - Yes, more space in main memory will allow more pages to be stored
+        reducing page faults.
+   f. Install a faster hard disk or multiple controllers with multiple hard
+   disks.
+      - Could help by getting page faults done faster.
+   g.	Increase the page size.
+      - Page faults will happen despite page size.
+
+** TODO Remainder of Assignment
+#+BEGIN_SRC sh
+  open hw9-ch8_osc_wsosim.doc
+#+END_SRC
+
+#+RESULTS:
+* DONE Lab #6 Review
+  CLOSED: [2018-03-12 Mon 16:08] DEADLINE: <2018-03-12 Mon>
+* TODO Lab #6 - T2
+  DEADLINE: <2018-03-14 Wed>
+* DONE Lab 6 Grade Peers
+  CLOSED: [2018-03-12 Mon 16:08] DEADLINE: <2018-03-12 Mon>
+* TODO Weekly Reading [1/3]
+** DONE Mass-Storage Structure (9.1 – 9.3)
+   CLOSED: [2018-03-12 Mon 14:57] DEADLINE: <2018-03-12 Mon>
+** TODO Mass-Storage Structure (9.4 – 9.6)
+   DEADLINE: <2018-03-14 Wed>
+** TODO Mass-Storage Structure (9.7 – 9.9)
+   DEADLINE: <2018-03-16 Fri>
